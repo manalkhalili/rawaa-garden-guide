@@ -1,18 +1,21 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Home, Leaf, Flower, Sprout, Info, Phone, Search } from 'lucide-react';
+import { useSearch } from '../contexts/SearchContext';
+import PlantsDropdown from './PlantsDropdown';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const { searchQuery, performSearch } = useSearch();
+  const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery || '');
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // We would implement actual search functionality here
-    console.log('Searching for:', searchQuery);
+    performSearch(localSearchQuery);
   };
 
   return (
@@ -33,18 +36,9 @@ const Navbar = () => {
               <Home className="ml-1 h-4 w-4" />
               <span>الرئيسية</span>
             </Link>
-            <Link to="/indoor-plants" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
-              <Flower className="ml-1 h-4 w-4" />
-              <span>النباتات الداخلية</span>
-            </Link>
-            <Link to="/outdoor-plants" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
-              <Flower className="ml-1 h-4 w-4" />
-              <span>النباتات الخارجية</span>
-            </Link>
-            <Link to="/seeds" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
-              <Sprout className="ml-1 h-4 w-4" />
-              <span>البذور</span>
-            </Link>
+            <div className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
+              <PlantsDropdown />
+            </div>
             <Link to="/game" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
               <span className="bg-rawaa-accent px-3 py-1 rounded-full text-white">لعبة الأطفال</span>
             </Link>
@@ -65,8 +59,8 @@ const Navbar = () => {
                 type="text"
                 placeholder="ابحث عن نبات..."
                 className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-rawaa-primary"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                value={localSearchQuery}
+                onChange={(e) => setLocalSearchQuery(e.target.value)}
               />
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
             </div>
@@ -87,6 +81,7 @@ const Navbar = () => {
             <Link to="/indoor-plants" className="block py-2 px-4 text-sm hover:bg-gray-100">النباتات الداخلية</Link>
             <Link to="/outdoor-plants" className="block py-2 px-4 text-sm hover:bg-gray-100">النباتات الخارجية</Link>
             <Link to="/seeds" className="block py-2 px-4 text-sm hover:bg-gray-100">البذور</Link>
+            <Link to="/all-plants" className="block py-2 px-4 text-sm hover:bg-gray-100">جميع النباتات</Link>
             <Link to="/game" className="block py-2 px-4 text-sm hover:bg-gray-100">
               <span className="bg-rawaa-accent px-2 py-0.5 rounded-full text-white text-xs">لعبة الأطفال</span>
             </Link>
@@ -98,8 +93,8 @@ const Navbar = () => {
                   type="text"
                   placeholder="ابحث عن نبات..."
                   className="w-full pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-rawaa-primary"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  value={localSearchQuery}
+                  onChange={(e) => setLocalSearchQuery(e.target.value)}
                 />
                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
               </div>

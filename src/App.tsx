@@ -13,6 +13,8 @@ import Game from "./pages/Game";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Search from "./pages/Search";
+import { SearchProvider } from "./contexts/SearchContext";
 
 const queryClient = new QueryClient();
 
@@ -22,17 +24,20 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/indoor-plants" element={<IndoorPlants />} />
-          <Route path="/outdoor-plants" element={<OutdoorPlants />} />
-          <Route path="/seeds" element={<Seeds />} />
-          <Route path="/all-plants" element={<AllPlants />} />
-          <Route path="/game" element={<Game />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <SearchProvider>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/indoor-plants" element={<IndoorPlants />} />
+            <Route path="/outdoor-plants" element={<OutdoorPlants />} />
+            <Route path="/seeds" element={<Seeds />} />
+            <Route path="/all-plants" element={<AllPlants />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/game" element={<Game />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </SearchProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
