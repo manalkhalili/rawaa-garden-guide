@@ -6,7 +6,7 @@ import PlantCard from '../components/PlantCard';
 import TeamMember from '../components/TeamMember';
 import Footer from '../components/Footer';
 import { Button } from '../components/ui/button';
-import { Flower, Sprout, Leaf } from 'lucide-react';
+import {Flower, Sprout, Leaf, BookOpenText, Sparkles, Target} from 'lucide-react';
 
 const Index = () => {
   // Featured plants data
@@ -71,7 +71,83 @@ const Index = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <Hero />
-        
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4 rtl">
+            {/* Title */}
+            <h2 className="section-title text-center mb-10 text-3xl font-bold text-rawaa-primary">
+              من نحن
+            </h2>
+
+            {/* About Us Card with Background Image */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-12 max-w-xl mx-auto">
+              <div
+                  className="h-64 bg-cover bg-center"
+                  style={{
+                    backgroundImage: 'url(src/assets/back.png)',
+                    backgroundSize: 'contain',  // لتغطية الكارد بشكل كامل
+                    backgroundPosition: 'center center',
+                    backgroundRepeat: 'no-repeat',
+                  }}
+              >
+              </div>
+              <div className="p-6">
+                <p className="text-lg text-gray-700 text-right leading-relaxed">
+                  "رواء" — حيث تروى الأرض وتنبت الفكرة. شركة زراعية تجمع بين أصالة الطبيعة وحداثة التقنية.
+                  لا نزرع محاصيل فقط، بل نزرع حلولاً ذكية، ونروي التربة بالمعرفة، لنحصد الابتكار والدعم المستدام
+                  للمزارعين والمستهلكين.
+                </p>
+              </div>
+            </div>
+
+            {/* Cards for Vision, Message, Goals */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Vision Card */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="h-48 bg-rawaa-primary flex items-center justify-center">
+                  <Sparkles className="h-20 w-20 text-white" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-rawaa-primary">الرؤية</h3>
+                  <p className="text-gray-700">
+                    أن نصنع من فلسطين منارة للزراعة الذكية، تجمع بين أصالة الأرض وروح الابتكار، لنقود
+                    مستقبلًا مستدامًا يرتقي بجودة الحياة.
+                  </p>
+                </div>
+              </div>
+
+              {/* Message Card */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="h-48 bg-rawaa-secondary flex items-center justify-center">
+                  <BookOpenText className="h-20 w-20 text-white" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-rawaa-secondary">الرسالة</h3>
+                  <p className="text-gray-700">
+                    توفير بيئة زراعية تعليمية وإبداعية تشمل المعرفة، الأدوات، والتجربة العملية لجعل الزراعة
+                    أسلوب حياة يبدأ من البيت ويكبر مع الأطفال.
+                  </p>
+                </div>
+              </div>
+
+              {/* Goals Card */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="h-48 bg-rawaa-accent flex items-center justify-center">
+                  <Target className="h-20 w-20 text-white" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-rawaa-accent">الأهداف</h3>
+                  <ul className="list-disc text-gray-700 pr-4 space-y-2 text-sm">
+                    <li>تطوير حلول زراعية ذكية ومستدامة لتحسين الإنتاج.</li>
+                    <li>دعم الاقتصاد المحلي عبر متجر إلكتروني زراعي.</li>
+                    <li>تحفيز الأطفال على الزراعة عبر صندوق زراعي تعليمي.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
         {/* Plant Categories Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 rtl">
