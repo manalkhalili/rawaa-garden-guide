@@ -58,10 +58,10 @@ const Index = () => {
   
   // Featured product data
   const featuredProduct = {
-    name: 'طقم أدوات زراعة منزلية',
-    price: '149 ريال',
+    name: 'منتجنا',
+    price: '90 شيكل',
     image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-    description: 'مجموعة كاملة من أدوات الزراعة المنزلية، تشمل مجرفة، مقص، قفازات، وأواني زراعة.'
+    description: 'مجموعة كاملة من نبتة وأدوات الزراعة المنزلية، تشمل مجرفة، مقص، قفازات، وأواني زراعة.'
   };
 
   return (
@@ -271,11 +271,8 @@ const Index = () => {
                 </p>
                 <div className="flex items-center mb-6">
                   <span className="text-2xl font-bold text-rawaa-primary">{featuredProduct.price}</span>
-                  <span className="text-gray-500 mr-2 line-through">199 ريال</span>
                 </div>
-                <Button className="bg-rawaa-primary hover:bg-rawaa-primary/90 text-white px-8 py-6">
-                  اشتري الآن
-                </Button>
+
               </div>
             </div>
           </div>
