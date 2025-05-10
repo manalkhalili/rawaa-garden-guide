@@ -9,19 +9,19 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold text-rawaa-dark mb-4">
-              تعلّم أسرار الزراعة مع <span className="text-rawaa-primary">رواء</span>
+              <span className="text-rawaa-primary">رَوْاء</span>ْ_خدماتنا تجاوزت الزراعة التقليدي
             </h1>
             <p className="text-lg text-gray-600 mb-6">
-              نقدم لك دليلاً شاملاً للعناية بالنباتات وزراعتها بطرق سهلة ومبسطة، لتنعم بمساحة خضراء في منزلك وحديقتك.
-            </p>
+              اكتشف عالم الزراعة بسهولة مع دليلنا الشامل وصندوق زراعي مخصص لطفلك ليزرع نبتته المفضلة، بالإضافة إلى ألعاب تعليمية ممتعة لتقضي وقتًا مفيدًا ومسلي            </p>
             <div className="flex space-x-4">
-              <Button className="bg-rawaa-primary hover:bg-rawaa-primary/90 text-white px-6 py-6 rounded-md">
-                استكشف النباتات
-              </Button>
-              <Button variant="outline" className="border-rawaa-primary text-rawaa-primary hover:bg-rawaa-primary/10 px-6 py-6 rounded-md mr-4">
-                تعلم المزيد
+              <Button
+                  className="bg-rawaa-primary hover:bg-rawaa-primary/90 text-white px-6 py-6 rounded-md"
+                  onClick={() => window.location.href = '/Game'} // استبدلي "/your-target-page" بعنوان الصفحة المطلوبة
+              >
+                العب معنا
               </Button>
             </div>
+
           </div>
           <div className="md:w-1/2">
             <div className="relative">
