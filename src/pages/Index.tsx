@@ -6,7 +6,7 @@ import PlantCard from '../components/PlantCard';
 import TeamMember from '../components/TeamMember';
 import Footer from '../components/Footer';
 import { Button } from '../components/ui/button';
-import { Plant, Seed, Leaf } from 'lucide-react';
+import { Flower, Sprout, Leaf } from 'lucide-react';
 
 const Index = () => {
   // Featured plants data
@@ -81,7 +81,7 @@ const Index = () => {
               {/* Indoor Plants Category */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="h-48 bg-rawaa-primary flex items-center justify-center">
-                  <Plant className="h-24 w-24 text-white" />
+                  <Flower className="h-24 w-24 text-white" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">النباتات الداخلية</h3>
@@ -97,7 +97,7 @@ const Index = () => {
               {/* Outdoor Plants Category */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="h-48 bg-rawaa-secondary flex items-center justify-center">
-                  <Plant className="h-24 w-24 text-white" />
+                  <Flower className="h-24 w-24 text-white" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">النباتات الخارجية</h3>
@@ -113,7 +113,7 @@ const Index = () => {
               {/* Seeds Category */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="h-48 bg-rawaa-accent flex items-center justify-center">
-                  <Seed className="h-24 w-24 text-white" />
+                  <Sprout className="h-24 w-24 text-white" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">البذور</h3>

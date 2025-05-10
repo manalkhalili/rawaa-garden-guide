@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
-import { Home, Leaf, Plant, Seed, Info, Phone, Search } from 'lucide-react';
+import { Home, Leaf, Flower, Sprout, Info, Phone, Search } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,15 +34,15 @@ const Navbar = () => {
               <span>الرئيسية</span>
             </Link>
             <Link to="/indoor-plants" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
-              <Plant className="ml-1 h-4 w-4" />
+              <Flower className="ml-1 h-4 w-4" />
               <span>النباتات الداخلية</span>
             </Link>
             <Link to="/outdoor-plants" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
-              <Plant className="ml-1 h-4 w-4" />
+              <Flower className="ml-1 h-4 w-4" />
               <span>النباتات الخارجية</span>
             </Link>
             <Link to="/seeds" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
-              <Seed className="ml-1 h-4 w-4" />
+              <Sprout className="ml-1 h-4 w-4" />
               <span>البذور</span>
             </Link>
             <Link to="/game" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">

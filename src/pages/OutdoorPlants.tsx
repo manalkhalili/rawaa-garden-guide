@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PlantCard from '../components/PlantCard';
-import { Plant } from 'lucide-react';
+import { Flower } from 'lucide-react';
 
 const OutdoorPlants = () => {
   // Outdoor plants data
@@ -61,7 +61,7 @@ const OutdoorPlants = () => {
         <section className="bg-rawaa-secondary py-12">
           <div className="container mx-auto px-4 rtl">
             <div className="flex items-center">
-              <Plant className="text-white h-12 w-12 ml-4" />
+              <Flower className="text-white h-12 w-12 ml-4" />
               <div>
                 <h1 className="text-3xl font-bold text-white">النباتات الخارجية</h1>
                 <p className="text-white opacity-80">نباتات تضيف جمالاً للحدائق والمساحات الخارجية وتتحمل الظروف المختلفة</p>

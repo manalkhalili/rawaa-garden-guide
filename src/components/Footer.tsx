@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, Mail, Phone, Home, Info } from 'lucide-react';
+import { Leaf, Mail, Phone, Home, Info, Flower, Sprout } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -51,19 +51,19 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/indoor-plants" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <Plant className="h-4 w-4 ml-2" />
+                  <Flower className="h-4 w-4 ml-2" />
                   <span>النباتات الداخلية</span>
                 </Link>
               </li>
               <li>
                 <Link to="/outdoor-plants" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <Plant className="h-4 w-4 ml-2" />
+                  <Flower className="h-4 w-4 ml-2" />
                   <span>النباتات الخارجية</span>
                 </Link>
               </li>
               <li>
                 <Link to="/seeds" className="text-gray-300 hover:text-white transition-colors flex items-center">
-                  <Seed className="h-4 w-4 ml-2" />
+                  <Sprout className="h-4 w-4 ml-2" />
                   <span>البذور</span>
                 </Link>
               </li>

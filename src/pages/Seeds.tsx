@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PlantCard from '../components/PlantCard';
-import { Seed } from 'lucide-react';
+import { Sprout } from 'lucide-react';
 
 const Seeds = () => {
   // Seeds data
@@ -61,7 +61,7 @@ const Seeds = () => {
         <section className="bg-rawaa-accent py-12">
           <div className="container mx-auto px-4 rtl">
             <div className="flex items-center">
-              <Seed className="text-white h-12 w-12 ml-4" />
+              <Sprout className="text-white h-12 w-12 ml-4" />
               <div>
                 <h1 className="text-3xl font-bold text-white">البذور</h1>
                 <p className="text-white opacity-80">مجموعة متنوعة من البذور لزراعة الخضروات والفواكه والزهور والأعشاب</p>
