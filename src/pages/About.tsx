@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TeamMember from '../components/TeamMember';
-import { Info, Leaf } from 'lucide-react';
+import { Info, Leaf, Flower, Sprout } from 'lucide-react';
 
 const About = () => {
   // Team members data
@@ -95,7 +95,7 @@ const About = () => {
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg text-center">
                 <div className="bg-rawaa-secondary/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
-                  <Plant className="h-8 w-8 text-rawaa-secondary" />
+                  <Flower className="h-8 w-8 text-rawaa-secondary" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">تشجيع الزراعة المنزلية</h3>
                 <p className="text-gray-600">
@@ -104,7 +104,7 @@ const About = () => {
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg text-center">
                 <div className="bg-rawaa-accent/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
-                  <Seed className="h-8 w-8 text-rawaa-accent" />
+                  <Sprout className="h-8 w-8 text-rawaa-accent" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">دعم الاستدامة</h3>
                 <p className="text-gray-600">
