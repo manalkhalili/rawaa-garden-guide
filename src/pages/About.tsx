@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TeamMember from '../components/TeamMember';
-import { Info, Leaf, Flower, Sprout } from 'lucide-react';
+import { Info, Leaf, Flower, Sprout, MessageSquare, Eye } from 'lucide-react';
 
 const About = () => {
   // Team members data
@@ -79,12 +79,45 @@ const About = () => {
           </div>
         </section>
         
-        {/* Our Mission */}
+        {/* Vision & Mission Sections */}
         <section className="py-12 bg-rawaa-light rtl">
           <div className="container mx-auto px-4">
-            <h2 className="section-title text-center mb-8">مهمتنا</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Vision */}
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="bg-rawaa-primary/10 p-4 rounded-full inline-flex items-center justify-center mr-4">
+                    <Eye className="h-8 w-8 text-rawaa-primary" />
+                  </div>
+                  <h2 className="text-2xl font-bold">رؤيتنا</h2>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  أن نكون المرجع الأول والأكثر موثوقية في العالم العربي للمعرفة الزراعية المنزلية والعناية بالنباتات، وأن نساهم في نشر الوعي البيئي وتعزيز الاستدامة من خلال تشجيع الزراعة المنزلية وخلق مساحات خضراء في كل منزل.
+                </p>
+              </div>
+              
+              {/* Mission */}
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="bg-rawaa-secondary/10 p-4 rounded-full inline-flex items-center justify-center mr-4">
+                    <MessageSquare className="h-8 w-8 text-rawaa-secondary" />
+                  </div>
+                  <h2 className="text-2xl font-bold">رسالتنا</h2>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  تمكين الأفراد من خلال تقديم محتوى تعليمي عالي الجودة وسهل الفهم حول الزراعة المنزلية والعناية بالنباتات، وبناء مجتمع متفاعل من محبي النباتات لتبادل الخبرات والمعرفة، ودعم الممارسات الزراعية المستدامة التي تحافظ على البيئة وتعزز الصحة النفسية والجسدية.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Our Mission */}
+        <section className="py-12 bg-white rtl">
+          <div className="container mx-auto px-4">
+            <h2 className="section-title text-center mb-8">أهدافنا</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+              <div className="bg-rawaa-light p-6 rounded-lg shadow-lg text-center">
                 <div className="bg-rawaa-primary/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
                   <Leaf className="h-8 w-8 text-rawaa-primary" />
                 </div>
@@ -93,7 +126,7 @@ const About = () => {
                   توفير محتوى عربي موثوق وسهل الفهم في مجال الزراعة والعناية بالنباتات.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+              <div className="bg-rawaa-light p-6 rounded-lg shadow-lg text-center">
                 <div className="bg-rawaa-secondary/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
                   <Flower className="h-8 w-8 text-rawaa-secondary" />
                 </div>
@@ -102,7 +135,7 @@ const About = () => {
                   مساعدة الناس على إنشاء مساحات خضراء في منازلهم وتعزيز الارتباط بالطبيعة.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+              <div className="bg-rawaa-light p-6 rounded-lg shadow-lg text-center">
                 <div className="bg-rawaa-accent/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
                   <Sprout className="h-8 w-8 text-rawaa-accent" />
                 </div>

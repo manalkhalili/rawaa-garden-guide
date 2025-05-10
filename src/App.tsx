@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import IndoorPlants from "./pages/IndoorPlants";
 import OutdoorPlants from "./pages/OutdoorPlants";
 import Seeds from "./pages/Seeds";
+import AllPlants from "./pages/AllPlants";
 import Game from "./pages/Game";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/indoor-plants" element={<IndoorPlants />} />
           <Route path="/outdoor-plants" element={<OutdoorPlants />} />
           <Route path="/seeds" element={<Seeds />} />
+          <Route path="/all-plants" element={<AllPlants />} />
           <Route path="/game" element={<Game />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
