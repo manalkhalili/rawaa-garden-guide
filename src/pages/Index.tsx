@@ -235,21 +235,32 @@ const Index = () => {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 rtl">
             <h2 className="section-title">فريق العمل</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               {teamMembers.map((member, index) => (
-                <TeamMember 
-                  key={index}
-                  name={member.name}
-                  role={member.role}
-                  image={member.image}
-                  bio={member.bio}
-                />
+                  <TeamMember
+                      key={index}
+                      name={member.name}
+                      role={member.role}
+                      image={member.image}
+                      bio={member.bio}
+                  />
               ))}
+            </div>
+
+            {/* زر في الأسفل بالوسط */}
+            <div className="flex justify-center mt-10">
+              <a
+                  href="/About" // عدلي الرابط حسب المسار المناسب
+                  className="bg-rawaa-primary text-white px-6 py-2 rounded-full hover:bg-rawaa-dark transition duration-300"
+              >
+                تعرف على فريقنا
+              </a>
             </div>
           </div>
         </section>
-        
+
+
         {/* Featured Product Section */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
