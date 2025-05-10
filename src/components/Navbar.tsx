@@ -41,9 +41,8 @@ const Navbar = () => {
             <div className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
               <PlantsDropdown />
             </div>
-            <Link to="/game" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
-              <span className="bg-rawaa-accent px-3 py-1 rounded-full text-white">لعبة الأطفال</span>
-            </Link>
+
+
             <Link to="/about" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
               <Info className="ml-1 h-4 w-4" />
               <span>من نحن</span>
@@ -51,6 +50,9 @@ const Navbar = () => {
             <Link to="/contact" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
               <Phone className="ml-1 h-4 w-4" />
               <span>تواصل معنا</span>
+            </Link>
+            <Link to="/game" className="flex items-center text-rawaa-dark hover:text-rawaa-primary transition-colors mr-4">
+              <span className="bg-rawaa-accent px-3 py-1 rounded-full text-white">لعبة الأطفال</span>
             </Link>
           </nav>
           
