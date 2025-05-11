@@ -12,14 +12,13 @@ const Hero = () => {
               <span className="text-rawaa-primary">رَوْاء</span>ْ_حيث تروى الأرض وتنبت الفكرة
             </h1>
             <p className="text-lg text-gray-600 mb-6">
-              اكتشف عالم الزراعة بسهولة مع دليلنا الشامل وصندوق زراعي مخصص لطفلك ليزرع نبتته المفضلة، بالإضافة إلى ألعاب تعليمية ممتعة لتقضي وقتًا مفيدًا ومسلي            </p>
+              رَواء... شركة طلابية فلسطينية تجمع بين التعليم الزراعي والمتجر الإلكتروني، بأيدٍ طلابية شغوفة، لنزرع جيلاً واعيًا ومحافظًا على أرضه.         </p>
             <div className="flex space-x-4">
               <Button
                   className="bg-rawaa-primary hover:bg-rawaa-primary/90 text-white px-6 py-6 rounded-md"
-                  onClick={() => window.location.href = '/Game'} // استبدلي "/your-target-page" بعنوان الصفحة المطلوبة
+                  onClick={() => window.location.href = '/About'} // استبدلي "/your-target-page" بعنوان الصفحة المطلوبة
               >
-                العب معنا
-              </Button>
+تعرف علينا عن قرب              </Button>
             </div>
 
           </div>
