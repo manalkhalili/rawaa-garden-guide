@@ -43,7 +43,7 @@ const PlantsDropdown: React.FC = () => {
     <NavigationMenu dir="rtl">
       <NavigationMenuList className="space-x-0 space-x-reverse">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-white">النباتات</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent text-black">النباتات</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               <ListItem
