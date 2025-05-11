@@ -10,46 +10,29 @@ const Seeds = () => {
   const seeds = [
     {
       id: '1',
-      name: 'بذور الريحان',
+      name: 'الحمص',
       image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-      shortDescription: 'بذور عشبية عطرية سهلة الزراعة، تستخدم في الطهي والعلاج.',
+      shortDescription: 'يُنقع قبل الزراعة لتسريع الإنبات، ويزرع في الخارج فقط تحت الشمس المباشرة. يفضل التربة جيدة التصريف، ولا يحتاج الكثير من التسميد النيتروجيني لأنه يثبّت النيتروجين بنفسه.\n' +
+          '\n',
       category: 'seed' as const
     },
     {
       id: '2',
-      name: 'بذور الطماطم',
+      name: 'القمح',
       image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
-      shortDescription: 'بذور خضروات مثالية للزراعة المنزلية، سهلة النمو وغنية بالفوائد.',
+      shortDescription: 'محصول شتوي يحتاج لمساحات واسعة وتربة خصبة. يفضل الزراعة في الخريف تحت أشعة الشمس، مع ري معتدل وتسميد متدرج حسب مراحل النمو.\n' +
+          '\n',
       category: 'seed' as const
     },
     {
       id: '3',
-      name: 'بذور عباد الشمس',
+      name: 'العدس',
       image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838',
-      shortDescription: 'بذور زهور جميلة تنمو بسرعة وتضفي مظهراً جذاباً للحديقة.',
+      shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.\n' +
+          '\n',
       category: 'seed' as const
     },
-    {
-      id: '4',
-      name: 'بذور الزعتر',
-      image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
-      shortDescription: 'بذور عشبية طبية وعطرية، تضيف نكهة مميزة للطعام.',
-      category: 'seed' as const
-    },
-    {
-      id: '5',
-      name: 'بذور الفلفل',
-      image: 'https://images.unsplash.com/photo-1465379944081-7f47de8d74ac',
-      shortDescription: 'بذور خضروات متنوعة بين الحار والحلو، سهلة الزراعة في الأصص.',
-      category: 'seed' as const
-    },
-    {
-      id: '6',
-      name: 'بذور النعناع',
-      image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9',
-      shortDescription: 'بذور عشبية عطرية منعشة، تنمو بسرعة وتتكاثر بسهولة.',
-      category: 'seed' as const
-    },
+
   ];
 
   return (
