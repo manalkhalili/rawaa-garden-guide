@@ -105,13 +105,7 @@ const About = () => {
       image: 'src/assets/img_13.png',
       bio: ''
     }
-    ,
-    {
-      name: 'لارا محمد',
-      role: 'رئيس قسم الموارد البشرية',
-      image: 'src/assets/img_2.png',
-      bio: ''
-    }
+
   ];
 
   return (
@@ -250,26 +244,22 @@ const About = () => {
               <div className="bg-white p-6 rounded-lg shadow border-r-4 border-rawaa-primary">
                 <h3 className="text-xl font-bold mb-3 text-rawaa-primary">الدقة العلمية</h3>
                 <p className="text-gray-600">
-                  نلتزم بتقديم معلومات دقيقة وموثوقة، مبنية على أسس علمية وخبرات عملية.
-                </p>
+                  نقدّم محتوى زراعيًا موثوقًا مبنيًا على مصادر علمية دقيقة، لضمان وصول الأمهات والأطفال إلى معلومات صحيحة وفعّالة في رحلتهم نحو الزراعة الواعية.                </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow border-r-4 border-rawaa-primary">
                 <h3 className="text-xl font-bold mb-3 text-rawaa-primary">التبسيط</h3>
                 <p className="text-gray-600">
-                  نسعى لتبسيط المعلومات المعقدة وتقديمها بطريقة سهلة الفهم والتطبيق.
-                </p>
+                  نحوّل المفاهيم الزراعية المعقدة إلى محتوى سهل، ممتع، وملائم لعقول الصغار واهتمامات الكبار، لتكون الزراعة تجربة أقرب لكل بيت.                </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow border-r-4 border-rawaa-primary">
                 <h3 className="text-xl font-bold mb-3 text-rawaa-primary">الشمولية</h3>
                 <p className="text-gray-600">
-                  نغطي مختلف جوانب العناية بالنباتات والزراعة لتلبية احتياجات جميع المهتمين.
-                </p>
+                  من التوعية للأم إلى التفاعل مع الطفل، يغطي موقعنا الجوانب التعليمية، البيئية، والعملية للزراعة المنزلية بطريقة متكاملة.                </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow border-r-4 border-rawaa-primary">
                 <h3 className="text-xl font-bold mb-3 text-rawaa-primary">المجتمعية</h3>
                 <p className="text-gray-600">
-                  نؤمن بأهمية بناء مجتمع من محبي النباتات لتبادل الخبرات والمعرفة.
-                </p>
+                  نبني مجتمعًا من الأمهات والأطفال المحبين للزراعة، حيث المشاركة، الدعم، والتجارب المشتركة تُثمر وعيًا جماعيًا ومحبةً للأرض.                </p>
               </div>
             </div>
           </div>
