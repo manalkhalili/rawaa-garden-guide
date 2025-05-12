@@ -9,28 +9,108 @@ const About = () => {
   // Team members data
   const teamMembers = [
     {
-      name: 'سارة الأحمد',
-      role: 'مؤسسة ومديرة',
-      image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838',
-      bio: 'خبيرة في مجال الزراعة المنزلية مع أكثر من 10 سنوات من الخبرة في تعليم الزراعة. حاصلة على شهادة في البستنة من جامعة الملك سعود.'
+      name: 'بشرى صبحي',
+      role: 'المديرة التنفيذية',
+      image: 'src/assets/img.png',
+      bio: ''
+
     },
     {
-      name: 'لينا محمد',
-      role: 'خبيرة نباتات داخلية',
-      image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
-      bio: 'متخصصة في النباتات المنزلية والعناية بها، حاصلة على شهادة في البستنة التخصصية. لديها خبرة 7 سنوات في تنسيق النباتات الداخلية.'
+      name: 'لجين',
+      role: 'المدير المالي',
+      image: 'src/assets/img_1.png',
+      bio: ''
+
     },
     {
-      name: 'نورة العلي',
-      role: 'مسؤولة التسويق',
-      image: 'https://images.unsplash.com/photo-1465379944081-7f47de8d74ac',
-      bio: 'تمتلك خبرة واسعة في التسويق وإدارة المحتوى المتخصص في مجال النباتات والزراعة. خريجة إدارة أعمال مع شغف كبير للنباتات.'
+      name: 'ليان شهاب',
+      role: 'مدير العمليات',
+      image: 'src/assets/img_3.png',
+      bio: ''
+
     },
     {
-      name: 'هدى الزهراني',
-      role: 'مستشارة الحدائق',
-      image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
-      bio: 'مهندسة زراعية متخصصة في تصميم وتنفيذ الحدائق الخارجية. لديها خبرة 9 سنوات في إنشاء حدائق متكاملة تجمع بين الجمال والاستدامة.'
+      name: 'لارا محمد',
+      role: 'رئيس قسم الموارد البشرية',
+      image: 'src/assets/img_2.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'سارة محمد',
+      role: 'رئيس ادارة المشاريع',
+      image: 'src/assets/img_5.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'يقين ابو هنية ',
+      role: 'مدير قسم التسويق',
+      image: 'src/assets/img_6.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'الاء سامي',
+      role: 'مدير قسم المبيعات',
+      image: 'src/assets/img_7.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'منار',
+      role: 'مديرة تطوير المنتجات',
+      image: 'src/assets/img_4.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'دانا\n',
+      role: '',
+      image: 'src/assets/img_8.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'ابتسام',
+      role: '',
+      image: 'src/assets/img_9.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'رؤى\n',
+      role: '',
+      image: 'src/assets/img_10.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'روعة',
+      role: '',
+      image: 'src/assets/img_11.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'نور الهدى\n',
+      role: 'رئيس قسم الموارد البشرية',
+      image: 'src/assets/img_12.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'لمار حسن',
+      role: '',
+      image: 'src/assets/img_13.png',
+      bio: ''
+    }
+    ,
+    {
+      name: 'لارا محمد',
+      role: 'رئيس قسم الموارد البشرية',
+      image: 'src/assets/img_2.png',
+      bio: ''
     }
   ];
 
