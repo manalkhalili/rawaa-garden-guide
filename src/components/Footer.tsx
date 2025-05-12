@@ -80,7 +80,7 @@ const Footer = () => {
 
               <p className="text-gray-300 flex items-center">
                 <Home className="h-4 w-4 ml-2" />
-                <span>فلسطين</span>
+                <span>فلسطين-عقربا</span>
               </p>
             </div>
           </div>

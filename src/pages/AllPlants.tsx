@@ -13,67 +13,66 @@ const AllPlants = () => {
     // Indoor plants
     {
       id: '1',
-      name: 'نبات الصبار',
+      name: 'الورد الجوري',
       image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9',
-      shortDescription: 'نبات داخلي سهل العناية، مثالي للمبتدئين في عالم الزراعة المنزلية.',
+      shortDescription: 'الورد الجوري نبات خارجي سهل العناية، مثالي لمن يبحث عن إضافة لمسة من الجمال الطبيعي في حديقته.',
       category: 'indoor' as const
     },
     {
       id: '2',
-      name: 'نخيل الأريكا',
-      image: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787',
-      shortDescription: 'نبات داخلي يضيف لمسة استوائية، يفضل الإضاءة غير المباشرة والرطوبة العالية.',
+      name: 'القرنفل',
+      image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
+      shortDescription: 'نبات خارجي مزهر يزدهر في ضوء الشمس الجزئي، مثالي للحدائق ذات الإضاءة المعتدلة ويتميز بأزهاره الجميلة التي تزهر في الربيع وقد تمتد طوال العام مع العناية المنتظمة.' ,
       category: 'indoor' as const
     },
     {
       id: '3',
-      name: 'زنبق السلام',
-      image: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b',
-      shortDescription: 'نبات منزلي جميل مع أزهار بيضاء، يعيش جيدًا في الظل الجزئي والرطوبة المتوسطة.',
+      name: 'البوتس',
+      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
+      shortDescription: 'نبتة داخلية سهلة العناية، تنمو جيدًا في الإضاءة غير المباشرة وتتحمل الأماكن المظللة. مثالية للمكاتب والبيوت، ولا تحتاج لمساحة كبيرة. تنقي الهواء وتضفي لمسة خضراء جميلة.' ,
       category: 'indoor' as const
     },
     // Outdoor plants
     {
       id: '4',
-      name: 'زهرة الياسمين',
+      name: 'نبتة العنب',
       image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
-      shortDescription: 'نبات خارجي عطري، يضفي رائحة زكية ومظهر جميل للحدائق.',
+      shortDescription: 'نبتة خارجية محبة للشمس، تحتاج دعم لتتسلق وتقليم لتحفيز الثمار. تُروى بانتظام وتُسمّد حسب الموسم. تُصاب أحيانًا بفطريات أو حشرات، لذا يُنصح بالرش الوقائي.\n' +
+          '\n',
       category: 'outdoor' as const
     },
     {
       id: '5',
-      name: 'شجرة الزيتون',
-      image: 'https://images.unsplash.com/photo-1445264618000-f1e069c5920f',
-      shortDescription: 'شجرة معمرة تتحمل الظروف القاسية، رمز للسلام وتنتج ثمارًا مفيدة.',
+      name: 'نبتة الفراولة',
+      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
+      shortDescription: 'نبات خارجي يحب الشمس وبيحتاج تربة جيدة التصريف. يُزرع في الأماكن المشمسة مع عناية بالتسميد والتقيلم. يُصاب ببعض الأمراض الفطرية والبكتيرية، ويحتاج لمكافحة دورية.\n' +
+          '\n',
       category: 'outdoor' as const
     },
-    {
-      id: '6',
-      name: 'ورد جوري',
-      image: 'https://images.unsplash.com/photo-1519378058457-4c29a0a2efac',
-      shortDescription: 'زهرة خارجية جميلة تضيف ألوانًا زاهية للحدائق مع رائحة عطرة.',
-      category: 'outdoor' as const
-    },
+
     // Seeds
     {
-      id: '7',
-      name: 'بذور الريحان',
+      id: '6',
+      name: 'الحمص',
       image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-      shortDescription: 'بذور عشبية عطرية سهلة الزراعة، تستخدم في الطهي والعلاج.',
+      shortDescription: 'يُنقع قبل الزراعة لتسريع الإنبات، ويزرع في الخارج فقط تحت الشمس المباشرة. يفضل التربة جيدة التصريف، ولا يحتاج الكثير من التسميد النيتروجيني لأنه يثبّت النيتروجين بنفسه.\n' +
+          '\n',
+      category: 'seed' as const
+    },
+    {
+      id: '7',
+      name: 'القمح',
+      image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
+      shortDescription: 'محصول شتوي يحتاج لمساحات واسعة وتربة خصبة. يفضل الزراعة في الخريف تحت أشعة الشمس، مع ري معتدل وتسميد متدرج حسب مراحل النمو.\n' +
+          '\n',
       category: 'seed' as const
     },
     {
       id: '8',
-      name: 'بذور الطماطم',
-      image: 'https://images.unsplash.com/photo-1592818868295-f5e5c2643e14',
-      shortDescription: 'بذور خضروات شهيرة يمكن زراعتها في المنزل للحصول على طماطم طازجة.',
-      category: 'seed' as const
-    },
-    {
-      id: '9',
-      name: 'بذور زهرة عباد الشمس',
-      image: 'https://images.unsplash.com/photo-1567425928496-51d64c9f1a56',
-      shortDescription: 'بذور جميلة تنتج زهورًا كبيرة تتبع الشمس وتوفر بذورًا صالحة للأكل.',
+      name: 'العدس',
+      image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838',
+      shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.\n' +
+          '\n',
       category: 'seed' as const
     }
   ];

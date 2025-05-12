@@ -43,10 +43,7 @@ const Navbar = () => {
                 <Info className="ml-1 h-4 w-4 -mr-1" />
                 <span>من نحن</span>
               </Link>
-              <Link to="/contact" className="flex items-center text-black hover:text-rawaa-primary transition-colors mr-2">
-                <Phone className="ml-1 h-4 w-4 -mr-1" />
-                <span>تواصل معنا</span>
-              </Link>
+
               <Link to="/game" className="flex items-center text-white mr-2">
                 <span className="bg-rawaa-accent px-3 py-1 rounded-full">لعبة الأطفال</span>
               </Link>
