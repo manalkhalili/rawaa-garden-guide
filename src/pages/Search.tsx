@@ -13,47 +13,137 @@ const allPlants = [
   // Indoor plants
   {
     id: 'i1',
-    name: 'نبات البوثوس',
-    image: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787',
-    shortDescription: 'نبات داخلي سهل العناية، يمتاز بأوراقه الخضراء المتدلية.',
+    name: 'الورد الجوري',
+    image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9',
+    shortDescription: 'الورد الجوري نبات خارجي سهل العناية، مثالي لمن يبحث عن إضافة لمسة من الجمال الطبيعي في حديقته.',
     category: 'indoor' as const
   },
   {
     id: 'i2',
-    name: 'النخيل الأريكا',
-    image: 'https://images.unsplash.com/photo-1517848568502-d03fa74e1964',
-    shortDescription: 'نبات داخلي يضفي مظهراً استوائياً للمنزل، سهل العناية.',
+    name: 'القرنفل',
+    image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
+    shortDescription: 'نبات خارجي مزهر يزدهر في ضوء الشمس الجزئي، مثالي للحدائق ذات الإضاءة المعتدلة ويتميز بأزهاره الجميلة التي تزهر في الربيع وقد تمتد طوال العام مع العناية المنتظمة.' ,
     category: 'indoor' as const
   },
-  // Outdoor plants
   {
-    id: 'o1',
-    name: 'زهرة الياسمين',
-    image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
-    shortDescription: 'نبات خارجي عطري، يضفي رائحة زكية ومظهر جميل للحدائق.',
-    category: 'outdoor' as const
+    id: 'i3',
+    name: 'البوتس',
+    image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
+    shortDescription: 'نبتة داخلية سهلة العناية، تنمو جيدًا في الإضاءة غير المباشرة وتتحمل الأماكن المظللة. مثالية للمكاتب والبيوت، ولا تحتاج لمساحة كبيرة. تنقي الهواء وتضفي لمسة خضراء جميلة.' ,
+    category: 'indoor' as const
   },
   {
-    id: 'o2',
-    name: 'الجهنمية',
-    image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-    shortDescription: 'شجيرة مزهرة بألوان زاهية، تتحمل الحرارة وتزدهر في الصيف.',
-    category: 'outdoor' as const
+    id: 'i4',
+    name: 'الكلافيا',
+    image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9',
+    shortDescription: 'نبتة داخلية مزهرة بألوان برتقالية زاهية، تحب الضوء الساطع غير المباشر والرطوبة المعتدلة. مثالية للأماكن الهادئة داخل المنزل، وتُزهر في الربيع إذا اعتُني بها جيدًا.' ,
+    category: 'indoor' as const
+  },
+  {
+    id: 'i5',
+    name: 'الشراع',
+    image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838',
+    shortDescription: 'نبتة داخلية أنيقة بأزهار بيضاء، تنمو في الضوء غير المباشر وتحب الرطوبة المعتدلة. سهلة العناية، تنقي الهواء، لكنها سامة للحيوانات الأليفة.' ,
+    category: 'indoor' as const
+  },
+  {
+    id: 'i6',
+    name: 'وردة الكالا',
+    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    shortDescription: 'نبتة أنيقة تزهر في الربيع أو الصيف، قابلة للزراعة داخلًا أو خارجًا، تفضل الضوء الساطع غير المباشر وتربة جيدة التصريف. رمز للنقاء وتُستخدم كثيرًا في تنسيقات الزهور.' ,
+    category: 'indoor' as const
+  },
+  {
+    id: 'i7',
+    name: ' الغلونيميا',
+    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    shortDescription: 'نبتة داخلية تحب الإضاءة الهادئة. ري معتدل وتربة جيدة التصريف. لا تتحمل البرد أو التيارات الهوائية. تنظّف أوراقها بانتظام وتُسمد كل 4–6 أسابيع.' ,
+    category: 'indoor' as const
+  },
+  {
+    id: 'i8',
+    name: 'الكروتون',
+    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    shortDescription: 'يعشق الإضاءة القوية غير المباشرة. ألوانه تصبح أجمل بالشمس. يحتاج ري منتظم ورطوبة جيدة. لا يحب التغيير المفاجئ في المكان أو البرودة.\n' +
+        '\n' ,
+    category: 'indoor' as const
+  },
+  {
+    id: 'i9',
+    name: 'الأريكا',
+    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    shortDescription: 'نخلة داخلية ناعمة، تحب الإضاءة الساطعة غير المباشرة. ري معتدل وتربة جيدة التصريف. لا تتحمل البرد. تُسمد شهريًا في الربيع والصيف.\n' +
+        '\n' ,
+    category: 'indoor' as const
+
+  },
+  {
+    id: 'i10',
+    name: 'المونستيرا',
+    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    shortDescription: 'نبتة استوائية كبيرة تحب الضوء غير المباشر والرطوبة العالية. ري معتدل وتربة جيدة التصريف. تنمو بسرعة وتحتاج دعم عمودي ومساحة واسعة.\n' +
+        '\n' ,
+    category: 'indoor' as const
+  },
+  {
+    id: 'i11',
+    name: 'الديفنباخيا',
+    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    shortDescription: 'نبتة داخلية محبة للرطوبة، ذات أوراق جذابة. تحتاج ضوء ساطع غير مباشر، وري معتدل. سامة إذا تم لمس عصارتها، فاحذري منها.\n' +
+        '\n' ,
+    category: 'indoor' as const
+  },
+  {
+    id: 'i12',
+    name: 'نبتة الشمعة (هويا)',
+    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    shortDescription: 'تحب الضوء الساطع غير المباشر والرطوبة المعتدلة. تُروى عند جفاف التربة من الأعلى، وتُزهر أكثر في ظروف دافئة. لا تحب النقل أو التقليم الزائد، ويمكن تعليقها أو دعمها كمتسلقة.\n' +
+        '\n' ,
+    category: 'indoor' as const
   },
   // Seeds
+
   {
     id: 's1',
-    name: 'بذور الريحان',
+    name: 'الحمص',
     image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-    shortDescription: 'بذور عشبية عطرية سهلة الزراعة، تستخدم في الطهي والعلاج.',
+    shortDescription: 'يُنقع قبل الزراعة لتسريع الإنبات، ويزرع في الخارج فقط تحت الشمس المباشرة. يفضل التربة جيدة التصريف، ولا يحتاج الكثير من التسميد النيتروجيني لأنه يثبّت النيتروجين بنفسه.\n' +
+        '\n',
     category: 'seed' as const
   },
   {
     id: 's2',
-    name: 'بذور الطماطم',
+    name: 'القمح',
     image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
-    shortDescription: 'بذور خضروات مثالية للزراعة المنزلية، سهلة النمو وغنية بالفوائد.',
+    shortDescription: 'محصول شتوي يحتاج لمساحات واسعة وتربة خصبة. يفضل الزراعة في الخريف تحت أشعة الشمس، مع ري معتدل وتسميد متدرج حسب مراحل النمو.\n' +
+        '\n',
     category: 'seed' as const
+  },
+  {
+    id: 's3',
+    name: 'العدس',
+    image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838',
+    shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.\n' +
+        '\n',
+    category: 'seed' as const
+  },
+  // Outdoor plants
+
+  {
+    id: 'o1',
+    name: 'نبتة العنب',
+    image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
+    shortDescription: 'نبتة خارجية محبة للشمس، تحتاج دعم لتتسلق وتقليم لتحفيز الثمار. تُروى بانتظام وتُسمّد حسب الموسم. تُصاب أحيانًا بفطريات أو حشرات، لذا يُنصح بالرش الوقائي.\n' +
+        '\n',
+    category: 'outdoor' as const
+  },
+  {
+    id: 'o2',
+    name: 'نبتة الفراولة',
+    image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
+    shortDescription: 'نبات خارجي يحب الشمس وبيحتاج تربة جيدة التصريف. يُزرع في الأماكن المشمسة مع عناية بالتسميد والتقيلم. يُصاب ببعض الأمراض الفطرية والبكتيرية، ويحتاج لمكافحة دورية.\n' +
+        '\n',
+    category: 'outdoor' as const
   }
 ];
 
