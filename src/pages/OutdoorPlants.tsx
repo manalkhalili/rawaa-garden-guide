@@ -11,7 +11,7 @@ const OutdoorPlants = () => {
     {
       id: '1',
       name: 'نبتة العنب',
-      image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
+      image: 'src/assets/img_16.png',
       shortDescription: 'نبتة خارجية محبة للشمس، تحتاج دعم لتتسلق وتقليم لتحفيز الثمار. تُروى بانتظام وتُسمّد حسب الموسم. تُصاب أحيانًا بفطريات أو حشرات، لذا يُنصح بالرش الوقائي.\n' +
           '\n',
       category: 'outdoor' as const
@@ -19,7 +19,7 @@ const OutdoorPlants = () => {
     {
       id: '2',
       name: 'نبتة الفراولة',
-      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
+      image: 'src/assets/img_17.png',
       shortDescription: 'نبات خارجي يحب الشمس وبيحتاج تربة جيدة التصريف. يُزرع في الأماكن المشمسة مع عناية بالتسميد والتقيلم. يُصاب ببعض الأمراض الفطرية والبكتيرية، ويحتاج لمكافحة دورية.\n' +
           '\n',
       category: 'outdoor' as const
