@@ -11,7 +11,7 @@ const Seeds = () => {
     {
       id: '1',
       name: 'الحمص',
-      image: 'src/assets/img_29.png',
+      image: 'assets/img_29.png',
       shortDescription: 'يُنقع قبل الزراعة لتسريع الإنبات، ويزرع في الخارج فقط تحت الشمس المباشرة. يفضل التربة جيدة التصريف، ولا يحتاج الكثير من التسميد النيتروجيني لأنه يثبّت النيتروجين بنفسه.\n' +
           '\n',
       category: 'seed' as const
@@ -19,7 +19,7 @@ const Seeds = () => {
     {
       id: '2',
       name: 'القمح',
-      image: 'src/assets/img_30.png',
+      image: 'assets/img_30.png',
       shortDescription: 'محصول شتوي يحتاج لمساحات واسعة وتربة خصبة. يفضل الزراعة في الخريف تحت أشعة الشمس، مع ري معتدل وتسميد متدرج حسب مراحل النمو.\n' +
           '\n',
       category: 'seed' as const
@@ -27,7 +27,7 @@ const Seeds = () => {
     {
       id: '3',
       name: 'العدس',
-      image: 'src/assets/img_28.png',
+      image: 'assets/img_28.png',
       shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.\n' +
           '\n',
       category: 'seed' as const
