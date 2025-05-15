@@ -13,24 +13,27 @@ const Index = () => {
   const featuredPlants = [
     {
       id: '1',
-      name: 'نبات الصبار',
-      image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9',
-      shortDescription: 'نبات داخلي سهل العناية، مثالي للمبتدئين في عالم الزراعة المنزلية.',
-      category: 'indoor' as const
+      name: 'العدس',
+      image: 'assets/img_28.png',
+      shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.\n' +
+          '\n',
+      category: 'seed' as const
     },
     {
       id: '2',
-      name: 'زهرة الياسمين',
-      image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
-      shortDescription: 'نبات خارجي عطري، يضفي رائحة زكية ومظهر جميل للحدائق.',
+      name: 'نبتة الفراولة',
+      image: 'assets/img_17.png',
+      shortDescription: 'نبات خارجي يحب الشمس وبيحتاج تربة جيدة التصريف. يُزرع في الأماكن المشمسة مع عناية بالتسميد والتقيلم. يُصاب ببعض الأمراض الفطرية والبكتيرية، ويحتاج لمكافحة دورية.\n' +
+          '\n',
       category: 'outdoor' as const
     },
     {
-      id: '3',
-      name: 'بذور الريحان',
-      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-      shortDescription: 'بذور عشبية عطرية سهلة الزراعة، تستخدم في الطهي والعلاج.',
-      category: 'seed' as const
+      id: '6',
+      name: 'وردة الكالا',
+      image: 'assets/img_21.png',
+      shortDescription: 'نبتة أنيقة تزهر في الربيع أو الصيف، قابلة للزراعة داخلًا أو خارجًا، تفضل الضوء الساطع غير المباشر وتربة جيدة التصريف. رمز للنقاء وتُستخدم كثيرًا في تنسيقات الزهور.' ,
+      category: 'indoor' as const
+
     }
   ];
   

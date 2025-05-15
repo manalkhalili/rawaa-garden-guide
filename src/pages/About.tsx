@@ -11,56 +11,56 @@ const About = () => {
     {
       name: 'بشرى صبحي',
       role: 'المديرة التنفيذية',
-      image: 'src/assets/img.png',
+      image: 'assets/img.png',
       bio: ''
 
     },
     {
       name: 'لجين',
       role: 'المدير المالي',
-      image: 'src/assets/img_1.png',
+      image: 'assets/img_1.png',
       bio: ''
 
     },
     {
       name: 'ليان شهاب',
       role: 'مدير العمليات',
-      image: 'src/assets/img_3.png',
+      image: 'assets/img_3.png',
       bio: ''
 
     },
     {
       name: 'لارا محمد',
       role: 'رئيس قسم الموارد البشرية',
-      image: 'src/assets/img_2.png',
+      image: 'assets/img_2.png',
       bio: ''
     }
     ,
     {
       name: 'سارة محمد',
       role: 'رئيس ادارة المشاريع',
-      image: 'src/assets/img_5.png',
+      image: 'assets/img_5.png',
       bio: ''
     }
     ,
     {
       name: 'يقين ابو هنية ',
       role: 'مدير قسم التسويق',
-      image: 'src/assets/img_6.png',
+      image: 'assets/img_6.png',
       bio: ''
     }
     ,
     {
       name: 'الاء سامي',
       role: 'مدير قسم المبيعات',
-      image: 'src/assets/img_7.png',
+      image: 'assets/img_7.png',
       bio: ''
     }
     ,
     {
       name: 'منار',
       role: 'مديرة تطوير المنتجات',
-      image: 'src/assets/img_4.png',
+      image: 'assets/img_4.png',
       bio: ''
     }
     ,
@@ -74,35 +74,35 @@ const About = () => {
     {
       name: 'ابتسام',
       role: '',
-      image: 'src/assets/img_9.png',
+      image: 'assets/img_9.png',
       bio: ''
     }
     ,
     {
       name: 'رؤى\n',
       role: '',
-      image: 'src/assets/img_10.png',
+      image: 'assets/img_10.png',
       bio: ''
     }
     ,
     {
       name: 'روعة',
       role: '',
-      image: 'src/assets/img_11.png',
+      image: 'assets/img_11.png',
       bio: ''
     }
     ,
     {
       name: 'نور الهدى\n',
       role: 'رئيس قسم الموارد البشرية',
-      image: 'src/assets/img_12.png',
+      image: 'assets/img_12.png',
       bio: ''
     }
     ,
     {
       name: 'لمار حسن',
       role: '',
-      image: 'src/assets/img_13.png',
+      image: 'assets/img_13.png',
       bio: ''
     }
 
@@ -132,7 +132,7 @@ const About = () => {
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="md:w-1/2">
                 <img 
-                  src="../../public/assets/logo2..jpg"
+                  src="assets/logo2..jpg"
                   alt="قصة رواء"
                   className="rounded-lg shadow-lg"
                 />
