@@ -146,7 +146,7 @@ const AllPlants = () => {
     {
       id: '8',
       name: 'العدس',
-      image: 'src/assets/img_28.png',
+      image: '/assets/img_28.png',
       shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.\n' +
           '\n',
       category: 'seed' as const

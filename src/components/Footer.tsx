@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Leaf, Mail, Phone, Home, Info, Flower, Sprout } from 'lucide-react';
-import logo from "@/assets/logo.jpg";
+import logo from "../../public/assets/logo.jpg";
 
 const Footer = () => {
   return (

@@ -132,7 +132,7 @@ const About = () => {
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="md:w-1/2">
                 <img 
-                  src="src/assets/logo2..jpg"
+                  src="../../public/assets/logo2..jpg"
                   alt="قصة رواء"
                   className="rounded-lg shadow-lg"
                 />

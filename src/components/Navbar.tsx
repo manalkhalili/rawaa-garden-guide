@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { Home, Leaf, Flower, Sprout, Info, Phone, Search } from 'lucide-react';
 import { useSearch } from '../contexts/SearchContext';
 import PlantsDropdown from './PlantsDropdown';
-import logo from '/src/assets/logo.jpg';
+import logo from '/public/assets/logo.jpg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
