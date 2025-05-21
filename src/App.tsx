@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Search from "./pages/Search";
 import { SearchProvider } from "./contexts/SearchContext";
+import PlantDetails from "./pages/PlantDetails";
 
 const queryClient = new QueryClient();
 
@@ -37,7 +38,6 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/plant/:id" element={<PlantDetails />} />
-
           </Routes>
         </SearchProvider>
       </BrowserRouter>
