@@ -14,6 +14,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Search from "./pages/Search";
+
 import { SearchProvider } from "./contexts/SearchContext";
 import PlantDetails from "./pages/PlantDetails";
 

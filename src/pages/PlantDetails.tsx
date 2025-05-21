@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Flower, Sprout, Leaf, ExternalLink } from 'lucide-react';
@@ -12,17 +13,11 @@ import {
   CarouselNext
 } from '@/components/ui/carousel';
 import PlantCard from '../components/PlantCard';
-import { useToast } from "@/components/ui/use-toast";
+import * as constants from "node:constants";
 
 const PlantDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [activeImage, setActiveImage] = useState<string | null>(null);
-  const [plant, setPlant] = useState<any>(null);
-  const [relatedPlants, setRelatedPlants] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { toast } = useToast();
   
   // Combined plants data from all categories (this would ideally come from a database or API)
   const allPlants = [
@@ -32,7 +27,7 @@ const PlantDetails = () => {
       name: 'الورد الجوري',
       image: 'assets/img_14.png',
       shortDescription: 'الورد الجوري نبات خارجي سهل العناية، مثالي لمن يبحث عن إضافة لمسة من الجمال الطبيعي في حديقته.',
-      category: 'indoor',
+      category: 'indoor' as const,
       fullDescription: 'الورد الجوري من أشهر وأجمل أنواع الورود، يتميز بألوانه الزاهية ورائحته العطرة. يحتاج إلى عناية معتدلة وري منتظم. يمكن زراعته في الحدائق والأواني، ويفضل وضعه في مكان يتلقى ضوء الشمس لعدة ساعات يومياً. يزهر عادة في فصلي الربيع والصيف.',
       careInstructions: 'يحتاج الورد الجوري إلى تربة غنية جيدة التصريف، وري منتظم مع تجنب تجمع الماء حول الجذور. قم بتقليمه بانتظام لتشجيع نمو الأزهار الجديدة، وإزالة الأوراق والأزهار الذابلة للحفاظ على صحة النبات.',
       images: [
@@ -45,7 +40,7 @@ const PlantDetails = () => {
       name: 'القرنفل',
       image: 'assets/img_15.png',
       shortDescription: 'نبات خارجي مزهر يزدهر في ضوء الشمس الجزئي، مثالي للحدائق ذات الإضاءة المعتدلة ويتميز بأزهاره الجميلة التي تزهر في الربيع وقد تمتد طوال العام مع العناية المنتظمة.',
-      category: 'indoor',
+      category: 'indoor' as const,
       fullDescription: 'القرنفل نبات مزهر جميل يتميز بألوانه المتنوعة وأزهاره العطرية. ينمو بشكل جيد في المناطق ذات المناخ المعتدل، ويمكن زراعته في الحدائق أو في أواني داخل المنزل. يزهر في فصل الربيع وقد يستمر حتى الخريف إذا توفرت له الظروف المناسبة.',
       careInstructions: 'يحتاج القرنفل إلى تربة جيدة التصريف وغنية بالمواد العضوية. يجب ريه بانتظام مع تجنب الإفراط في الري. يفضل تعريضه لضوء الشمس المباشر لعدة ساعات يومياً، وتسميده بشكل منتظم خلال موسم النمو.',
       images: [
@@ -58,7 +53,7 @@ const PlantDetails = () => {
       name: 'البوتس',
       image: 'assets/img_18.png',
       shortDescription: 'نبتة داخلية سهلة العناية، تنمو جيدًا في الإضاءة غير المباشرة وتتحمل الأماكن المظللة. مثالية للمكاتب والبيوت، ولا تحتاج لمساحة كبيرة. تنقي الهواء وتضفي لمسة خضراء جميلة.',
-      category: 'indoor',
+      category: 'indoor' as const,
       fullDescription: 'البوتس من النباتات المتسلقة الجميلة التي تتميز بأوراقها الخضراء اللامعة، وقدرتها على التكيف مع مختلف الظروف البيئية. يمكن زراعته في أواني معلقة أو تركه ليتسلق على دعامات. يعتبر من أكثر النباتات المنزلية شيوعاً لسهولة العناية به وجماله.',
       careInstructions: 'يحتاج البوتس إلى ري معتدل، مع ترك التربة تجف قليلاً بين مرات الري. يفضل وضعه في مكان به إضاءة غير مباشرة، ويمكن أن ينمو أيضاً في الإضاءة الاصطناعية. تسميده مرة كل شهرين كافٍ للحفاظ على نموه بشكل جيد.',
       images: [
@@ -72,7 +67,7 @@ const PlantDetails = () => {
       name: 'الكلافيا',
       image: 'assets/img_19.png',
       shortDescription: 'نبتة داخلية مزهرة بألوان برتقالية زاهية، تحب الضوء الساطع غير المباشر والرطوبة المعتدلة. مثالية للأماكن الهادئة داخل المنزل، وتُزهر في الربيع إذا اعتُني بها جيدًا.',
-      category: 'indoor',
+      category: 'indoor' as const,
       fullDescription: 'الكلافيا نبات داخلي مزهر يتميز بأزهاره البرتقالية أو الصفراء الزاهية التي تشبه المشاعل. تعتبر من النباتات التي تضفي لمسة من الألوان الدافئة على المنزل. تزهر عادة في فصل الربيع وأوائل الصيف.',
       careInstructions: 'تحتاج الكلافيا إلى إضاءة ساطعة غير مباشرة، وتربة خفيفة جيدة التصريف. يجب ريها باعتدال، وتركها تجف بين الريات. تفضل الرطوبة المعتدلة، ولا تحب التيارات الهوائية الباردة.',
       images: [
@@ -93,7 +88,68 @@ const PlantDetails = () => {
         'https://images.unsplash.com/photo-1469474968028-56623f02e42e'
       ]
     },
+    {
+      id: '6',
+      name: 'وردة الكالا',
+      image: 'assets/img_21.png',
+      shortDescription: 'نبتة أنيقة تزهر في الربيع أو الصيف، قابلة للزراعة داخلًا أو خارجًا، تفضل الضوء الساطع غير المباشر وتربة جيدة التصريف. رمز للنقاء وتُستخدم كثيرًا في تنسيقات الزهور.' ,
+      category: 'indoor' as const ,
+      fullDescription: 'وردة الكالا، نبتة أنيقة تُزرع داخليًا أو خارجيًا، وتُعرف بأزهارها الجميلة التي ترمز للنقاء. تُستخدم كثيرًا في تنسيقات الزهور، خاصة في الأعراس والجنازات حسب اللون. تزهر عادة في الربيع أو بداية الصيف، ويمكن أن تعيش لسنوات وتتجدد سنويًا من الجذور إذا توفرت لها الظروف المناسبة.',
+      careInstructions: 'تحتاج الكالا إلى ضوء ساطع غير مباشر، ودرجة حرارة معتدلة بين 15–25 مئوية. يُفضل ريها مرة أو مرتين أسبوعيًا دون ترك التربة مبلولة جدًا، مع إزالة الأوراق الذابلة بانتظام. تحب التهوية الجيدة وتُزرع في إناء متوسط العمق (20–30 سم) أو في الحديقة مع ترك مسافة 30 سم بين كل نبتة. يُنصح باستخدام سماد سائل متوازن (10-10-10 NPK) كل أسبوعين خلال موسم النمو، وتقليل التسميد بعد الإزهار. يجب تجنب الرياح القوية والشمس المباشرة طوال اليوم. في حال ظهور مشاكل، يمكن استخدام مبيد فطري لعفن الجذور أو بقع الأوراق، ومبيد حشري خفيف عند ظهور الذبابة البيضاء أو المنّ.'
+    },
+    {
+      id: '7',
+      name: ' الغلونيميا',
+      image: 'assets/img_22.png',
+      shortDescription: 'نبتة داخلية تحب الإضاءة الهادئة. ري معتدل وتربة جيدة التصريف. لا تتحمل البرد أو التيارات الهوائية. تنظّف أوراقها بانتظام وتُسمد كل 4–6 أسابيع.' ,
+      category: 'indoor' as const,
 
+    },
+    {
+      id: '8',
+      name: 'الكروتون',
+      image: 'assets/img_23.png',
+      shortDescription: 'يعشق الإضاءة القوية غير المباشرة. ألوانه تصبح أجمل بالشمس. يحتاج ري منتظم ورطوبة جيدة. لا يحب التغيير المفاجئ في المكان أو البرودة.\n' +
+          '\n' ,
+      category: 'indoor' as const
+
+    },
+    {
+      id: '9',
+      name: 'الأريكا',
+      image: 'assets/img_24.png',
+      shortDescription: 'نخلة داخلية ناعمة، تحب الإضاءة الساطعة غير المباشرة. ري معتدل وتربة جيدة التصريف. لا تتحمل البرد. تُسمد شهريًا في الربيع والصيف.\n' +
+          '\n' ,
+      category: 'indoor' as const
+
+    },
+    {
+      id: '10',
+      name: 'المونستيرا',
+      image: 'assets/img_25.png',
+      shortDescription: 'نبتة استوائية كبيرة تحب الضوء غير المباشر والرطوبة العالية. ري معتدل وتربة جيدة التصريف. تنمو بسرعة وتحتاج دعم عمودي ومساحة واسعة.\n' +
+          '\n' ,
+      category: 'indoor' as const
+
+    },
+    {
+      id: '11',
+      name: 'الديفنباخيا',
+      image: 'assets/img_26.png',
+      shortDescription: 'نبتة داخلية محبة للرطوبة، ذات أوراق جذابة. تحتاج ضوء ساطع غير مباشر، وري معتدل. سامة إذا تم لمس عصارتها، فاحذري منها.\n' +
+          '\n' ,
+      category: 'indoor' as const
+
+    },
+    {
+      id: '12',
+      name: 'نبتة الشمعة (هويا)',
+      image: 'assets/img_27.png',
+      shortDescription: 'تحب الضوء الساطع غير المباشر والرطوبة المعتدلة. تُروى عند جفاف التربة من الأعلى، وتُزهر أكثر في ظروف دافئة. لا تحب النقل أو التقليم الزائد، ويمكن تعليقها أو دعمها كمتسلقة.\n' +
+          '\n' ,
+      category: 'indoor' as const
+
+    },
     // Outdoor plants
     {
       id: '6',
@@ -109,7 +165,7 @@ const PlantDetails = () => {
       ]
     },
     {
-      id: '7',
+      id: '5',
       name: 'نبتة الفراولة',
       image: 'assets/img_17.png',
       shortDescription: 'نبات خارجي يحب الشمس وبيحتاج تربة جيدة التصريف. يُزرع في الأماكن المشمسة مع عناية بالتسميد والتقيلم. يُصاب ببعض الأمراض الفطرية والبكتيرية، ويحتاج لمكافحة دورية.',
@@ -124,7 +180,7 @@ const PlantDetails = () => {
 
     // Seeds
     {
-      id: '8',
+      id: '6',
       name: 'الحمص',
       image: 'assets/img_29.png',
       shortDescription: 'يُنقع قبل الزراعة لتسريع الإنبات، ويزرع في الخارج فقط تحت الشمس المباشرة. يفضل التربة جيدة التصريف، ولا يحتاج الكثير من التسميد النيتروجيني لأنه يثبّت النيتروجين بنفسه.',
@@ -137,7 +193,7 @@ const PlantDetails = () => {
       ]
     },
     {
-      id: '9',
+      id: '7',
       name: 'القمح',
       image: 'assets/img_30.png',
       shortDescription: 'محصول شتوي يحتاج لمساحات واسعة وتربة خصبة. يفضل الزراعة في الخريف تحت أشعة الشمس، مع ري معتدل وتسميد متدرج حسب مراحل النمو.',
@@ -150,7 +206,7 @@ const PlantDetails = () => {
       ]
     },
     {
-      id: '10',
+      id: '8',
       name: 'العدس',
       image: 'assets/img_28.png',
       shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.',
@@ -164,52 +220,8 @@ const PlantDetails = () => {
     }
   ];
 
-  useEffect(() => {
-    if (id) {
-      console.log("Searching for plant with ID:", id);
-      
-      // Find the plant based on the ID parameter
-      const foundPlant = allPlants.find(p => p.id === id);
-      
-      if (foundPlant) {
-        console.log("Found plant:", foundPlant.name);
-        setPlant(foundPlant);
-        setActiveImage(foundPlant.image);
-        
-        // Get related plants
-        const related = allPlants
-          .filter(p => p.category === foundPlant.category && p.id !== foundPlant.id)
-          .slice(0, 3);
-        
-        setRelatedPlants(related);
-      } else {
-        // Plant not found, show toast and redirect
-        console.error("Plant not found with ID:", id);
-        toast({
-          title: "النبات غير موجود",
-          description: "لم نتمكن من العثور على النبات المطلوب",
-          variant: "destructive",
-        });
-        navigate('/all-plants');
-      }
-      
-      setLoading(false);
-    }
-  }, [id, navigate, toast]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow flex items-center justify-center">
-          <div className="animate-pulse text-center rtl">
-            <h1 className="text-3xl font-bold text-gray-800">جاري التحميل...</h1>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  // Find the plant based on the ID parameter
+  const plant = allPlants.find(p => p.id === id);
 
   if (!plant) {
     return (
@@ -224,6 +236,11 @@ const PlantDetails = () => {
         <Footer />
       </div>
     );
+  }
+
+  // Set active image to main image if not already set
+  if (!activeImage) {
+    setActiveImage(plant.image);
   }
 
   // Map category to Arabic
@@ -267,6 +284,11 @@ const PlantDetails = () => {
         return null;
     }
   };
+
+  // Get related plants
+  const relatedPlants = allPlants
+    .filter(p => p.category === plant.category && p.id !== plant.id)
+    .slice(0, 3);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -323,7 +345,7 @@ const PlantDetails = () => {
                 
                 {/* Thumbnail Gallery */}
                 <div className="grid grid-cols-4 gap-2">
-                  {plant.images.map((img: string, index: number) => (
+                  {plant.images.map((img, index) => (
                     <div 
                       key={index} 
                       className={`overflow-hidden rounded-md cursor-pointer border-2 transition-all ${
@@ -367,7 +389,7 @@ const PlantDetails = () => {
           <h2 className="text-3xl font-bold mb-8 text-center text-rawaa-primary">معرض صور</h2>
           <Carousel className="w-full max-w-4xl mx-auto">
             <CarouselContent>
-              {plant.images.map((image: string, index: number) => (
+              {plant.images.map((image, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
                     <Card className="overflow-hidden border-none shadow-md">
@@ -394,7 +416,7 @@ const PlantDetails = () => {
         <div className="container mx-auto px-4 rtl">
           <h2 className="text-3xl font-bold mb-8 text-center text-rawaa-primary">نباتات ذات صلة</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {relatedPlants.map((relatedPlant) => (
+            {relatedPlants.map(relatedPlant => (
               <PlantCard 
                 key={relatedPlant.id}
                 id={relatedPlant.id}
@@ -413,4 +435,6 @@ const PlantDetails = () => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 export default PlantDetails;
