@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Flower, Sprout, Leaf, ExternalLink } from 'lucide-react';
@@ -13,10 +13,16 @@ import {
   CarouselNext
 } from '@/components/ui/carousel';
 import PlantCard from '../components/PlantCard';
+import { useToast } from "@/components/ui/use-toast";
 
 const PlantDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [plant, setPlant] = useState<any>(null);
+  const [relatedPlants, setRelatedPlants] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const { toast } = useToast();
   
   // Combined plants data from all categories (this would ideally come from a database or API)
   const allPlants = [
@@ -158,8 +164,48 @@ const PlantDetails = () => {
     }
   ];
 
-  // Find the plant based on the ID parameter
-  const plant = allPlants.find(p => p.id === id);
+  useEffect(() => {
+    if (id) {
+      // Find the plant based on the ID parameter
+      const foundPlant = allPlants.find(p => p.id === id);
+      
+      if (foundPlant) {
+        setPlant(foundPlant);
+        setActiveImage(foundPlant.image);
+        
+        // Get related plants
+        const related = allPlants
+          .filter(p => p.category === foundPlant.category && p.id !== foundPlant.id)
+          .slice(0, 3);
+        
+        setRelatedPlants(related);
+      } else {
+        // Plant not found, show toast and redirect
+        toast({
+          title: "النبات غير موجود",
+          description: "لم نتمكن من العثور على النبات المطلوب",
+          variant: "destructive",
+        });
+        navigate('/all-plants');
+      }
+      
+      setLoading(false);
+    }
+  }, [id, navigate, toast]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow flex items-center justify-center">
+          <div className="animate-pulse text-center rtl">
+            <h1 className="text-3xl font-bold text-gray-800">جاري التحميل...</h1>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!plant) {
     return (
@@ -174,11 +220,6 @@ const PlantDetails = () => {
         <Footer />
       </div>
     );
-  }
-
-  // Set active image to main image if not already set
-  if (!activeImage) {
-    setActiveImage(plant.image);
   }
 
   // Map category to Arabic
@@ -222,11 +263,6 @@ const PlantDetails = () => {
         return null;
     }
   };
-
-  // Get related plants
-  const relatedPlants = allPlants
-    .filter(p => p.category === plant.category && p.id !== plant.id)
-    .slice(0, 3);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -283,7 +319,7 @@ const PlantDetails = () => {
                 
                 {/* Thumbnail Gallery */}
                 <div className="grid grid-cols-4 gap-2">
-                  {plant.images.map((img, index) => (
+                  {plant.images.map((img: string, index: number) => (
                     <div 
                       key={index} 
                       className={`overflow-hidden rounded-md cursor-pointer border-2 transition-all ${
@@ -327,7 +363,7 @@ const PlantDetails = () => {
           <h2 className="text-3xl font-bold mb-8 text-center text-rawaa-primary">معرض صور</h2>
           <Carousel className="w-full max-w-4xl mx-auto">
             <CarouselContent>
-              {plant.images.map((image, index) => (
+              {plant.images.map((image: string, index: number) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
                     <Card className="overflow-hidden border-none shadow-md">
@@ -354,7 +390,7 @@ const PlantDetails = () => {
         <div className="container mx-auto px-4 rtl">
           <h2 className="text-3xl font-bold mb-8 text-center text-rawaa-primary">نباتات ذات صلة</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {relatedPlants.map(relatedPlant => (
+            {relatedPlants.map((relatedPlant) => (
               <PlantCard 
                 key={relatedPlant.id}
                 id={relatedPlant.id}
