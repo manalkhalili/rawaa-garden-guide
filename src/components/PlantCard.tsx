@@ -43,6 +43,7 @@ const PlantCard: React.FC<PlantCardProps> = ({ id, name, image, shortDescription
           to={`/plant/${id}`} 
           className="inline-block bg-rawaa-primary text-white px-4 py-2 rounded-md transition-all hover:bg-rawaa-primary/90 hover:scale-105"
           aria-label={`اقرأ المزيد عن ${name}`}
+          state={{ plantData: { id, name, image, shortDescription, category } }}
         >
           اقرأ المزيد
         </Link>

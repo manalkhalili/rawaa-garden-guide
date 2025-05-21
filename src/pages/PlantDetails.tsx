@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Flower, Sprout, Leaf, ExternalLink } from 'lucide-react';
@@ -22,6 +21,7 @@ const PlantDetails = () => {
   const [relatedPlants, setRelatedPlants] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
   
   // Combined plants data from all categories (this would ideally come from a database or API)
@@ -166,10 +166,13 @@ const PlantDetails = () => {
 
   useEffect(() => {
     if (id) {
+      console.log("Searching for plant with ID:", id);
+      
       // Find the plant based on the ID parameter
       const foundPlant = allPlants.find(p => p.id === id);
       
       if (foundPlant) {
+        console.log("Found plant:", foundPlant.name);
         setPlant(foundPlant);
         setActiveImage(foundPlant.image);
         
@@ -181,6 +184,7 @@ const PlantDetails = () => {
         setRelatedPlants(related);
       } else {
         // Plant not found, show toast and redirect
+        console.error("Plant not found with ID:", id);
         toast({
           title: "النبات غير موجود",
           description: "لم نتمكن من العثور على النبات المطلوب",
