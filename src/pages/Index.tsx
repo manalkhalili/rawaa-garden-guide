@@ -63,7 +63,7 @@ const Index = () => {
   const featuredProduct = {
     name: 'منتجنا',
     price: '135 شيكل',
-    image: 'public/assets/b8724d03-4306-41e9-91e2-14489d60c818.jpg',
+    image: 'assets/b8724d03-4306-41e9-91e2-14489d60c818.jpg',
     description: 'مجموعة كاملة من نبتة وأدوات الزراعة المنزلية، تشمل مجرفة، مقص، قفازات، وأواني زراعة.'
   };
 
