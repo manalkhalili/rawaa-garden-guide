@@ -42,19 +42,19 @@ const Index = () => {
     {
       name: 'بشرى صبحي',
       role: 'المديرة التنفيذية',
-      image: 'src/assets/img.png',
+      image: 'assets/img.png',
       bio: 'تقود بشرى الفريق برؤية مميزة وروح ملهمة، وتسهم بأفكار مبتكرة في تطوير المشروع وتحقيق أهدافه، مما يجعلها عنصرًا أساسيًا في نجاح العمل.'
     },
     {
       name: 'لجين',
       role: 'المدير المالي',
-      image: 'src/assets/img_1.png',
+      image: 'assets/img_1.png',
       bio: 'تتولى لجين مسؤولية التخطيط المالي وإدارة الميزانية، وتحرص على تنظيم الموارد بكفاءة لضمان استدامة المشروع وتحقيق أفضل النتائج الاقتصادية.'
     },
     {
       name: ' منار',
       role: ' مديرة تطوير المنتجات',
-      image: 'src/assets/img_4.png',
+      image: 'assets/img_4.png',
       bio: 'تتولى منار مسؤولية الإشراف على تطوير المنتجات الزراعية وتحسين تجربة الزبائن، من خلال متابعة الابتكار في تصميم محتوى البوكس الزراعي وضمان تلبية احتياجات العملاء بشكل مستمر.'
     }
   ];
@@ -63,7 +63,7 @@ const Index = () => {
   const featuredProduct = {
     name: 'منتجنا',
     price: '135 شيكل',
-    image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
+    image: 'public/assets/b8724d03-4306-41e9-91e2-14489d60c818.jpg',
     description: 'مجموعة كاملة من نبتة وأدوات الزراعة المنزلية، تشمل مجرفة، مقص، قفازات، وأواني زراعة.'
   };
 
@@ -86,7 +86,7 @@ const Index = () => {
               <div
                   className="h-64 bg-cover bg-center"
                   style={{
-                    backgroundImage: 'url(src/assets/back.png)',
+                    backgroundImage: 'url(assets/back.png)',
                     backgroundSize: 'contain',  // لتغطية الكارد بشكل كامل
                     backgroundPosition: 'center center',
                     backgroundRepeat: 'no-repeat',

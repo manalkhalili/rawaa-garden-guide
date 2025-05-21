@@ -37,11 +37,8 @@ const PlantCard: React.FC<PlantCardProps> = ({ id, name, image, shortDescription
         <div className="p-4 rtl">
           <h3 className="text-xl font-bold mb-2">{name}</h3>
           <p className="text-gray-600 text-sm mb-4">{shortDescription}</p>
-          <Link
-              to={`/plant/${id}`}
-              className="inline-block text-rawaa-primary font-medium hover:underline"
-          >
-            اقرأ المزيد ←
+          <Link to={`/plant/${id}`} className="text-rawaa-primary font-semibold hover:underline mt-2 block">
+            اقرأ المزيد
           </Link>
         </div>
       </div>
