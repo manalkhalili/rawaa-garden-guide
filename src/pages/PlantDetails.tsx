@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Flower, Sprout, Leaf, ExternalLink, ThermometerSun, Droplets, Sun, Clock, AlertTriangle, CheckCircle } from 'lucide-react';
+import { Flower, Sprout, Leaf, ThermometerSun, Droplets, Sun, Clock, AlertTriangle, CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
@@ -20,8 +20,12 @@ const PlantDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [activeImage, setActiveImage] = useState<string | null>(null);
   
+  console.log('Plant ID from URL:', id);
+  
   // Find the plant based on the ID parameter
   const plant = plantsData.find(p => p.id === id);
+  
+  console.log('Found plant:', plant);
 
   if (!plant) {
     return (
@@ -31,6 +35,7 @@ const PlantDetails = () => {
           <div className="text-center rtl">
             <h1 className="text-3xl font-bold text-gray-800">النبات غير موجود</h1>
             <p className="mt-4 text-gray-600">لم نتمكن من العثور على النبات المطلوب</p>
+            <p className="mt-2 text-sm text-gray-500">معرف النبات: {id}</p>
           </div>
         </main>
         <Footer />
