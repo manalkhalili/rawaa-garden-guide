@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Flower, Sprout, Leaf, ExternalLink } from 'lucide-react';
+import { Flower, Sprout, Leaf, ExternalLink, ThermometerSun, Droplets, Sun, Clock, AlertTriangle, CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { 
   Carousel,
   CarouselContent,
@@ -13,215 +14,14 @@ import {
   CarouselNext
 } from '@/components/ui/carousel';
 import PlantCard from '../components/PlantCard';
-import * as constants from "node:constants";
+import { plantsData } from '../data/plantsData';
 
 const PlantDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [activeImage, setActiveImage] = useState<string | null>(null);
   
-  // Combined plants data from all categories (this would ideally come from a database or API)
-  const allPlants = [
-    // Indoor plants
-    {
-      id: '1',
-      name: 'الورد الجوري',
-      image: 'assets/img_14.png',
-      shortDescription: 'الورد الجوري نبات خارجي سهل العناية، مثالي لمن يبحث عن إضافة لمسة من الجمال الطبيعي في حديقته.',
-      category: 'indoor' as const,
-      fullDescription: 'الورد الجوري من أشهر وأجمل أنواع الورود، يتميز بألوانه الزاهية ورائحته العطرة. يحتاج إلى عناية معتدلة وري منتظم. يمكن زراعته في الحدائق والأواني، ويفضل وضعه في مكان يتلقى ضوء الشمس لعدة ساعات يومياً. يزهر عادة في فصلي الربيع والصيف.',
-      careInstructions: 'يحتاج الورد الجوري إلى تربة غنية جيدة التصريف، وري منتظم مع تجنب تجمع الماء حول الجذور. قم بتقليمه بانتظام لتشجيع نمو الأزهار الجديدة، وإزالة الأوراق والأزهار الذابلة للحفاظ على صحة النبات.',
-      images: [
-        'assets/img_14.png',
-        'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07'
-      ]
-    },
-    {
-      id: '2',
-      name: 'القرنفل',
-      image: 'assets/img_15.png',
-      shortDescription: 'نبات خارجي مزهر يزدهر في ضوء الشمس الجزئي، مثالي للحدائق ذات الإضاءة المعتدلة ويتميز بأزهاره الجميلة التي تزهر في الربيع وقد تمتد طوال العام مع العناية المنتظمة.',
-      category: 'indoor' as const,
-      fullDescription: 'القرنفل نبات مزهر جميل يتميز بألوانه المتنوعة وأزهاره العطرية. ينمو بشكل جيد في المناطق ذات المناخ المعتدل، ويمكن زراعته في الحدائق أو في أواني داخل المنزل. يزهر في فصل الربيع وقد يستمر حتى الخريف إذا توفرت له الظروف المناسبة.',
-      careInstructions: 'يحتاج القرنفل إلى تربة جيدة التصريف وغنية بالمواد العضوية. يجب ريه بانتظام مع تجنب الإفراط في الري. يفضل تعريضه لضوء الشمس المباشر لعدة ساعات يومياً، وتسميده بشكل منتظم خلال موسم النمو.',
-      images: [
-        'assets/img_15.png',
-        'https://images.unsplash.com/photo-1518495973542-4542c06a5843'
-      ]
-    },
-    {
-      id: '3',
-      name: 'البوتس',
-      image: 'assets/img_18.png',
-      shortDescription: 'نبتة داخلية سهلة العناية، تنمو جيدًا في الإضاءة غير المباشرة وتتحمل الأماكن المظللة. مثالية للمكاتب والبيوت، ولا تحتاج لمساحة كبيرة. تنقي الهواء وتضفي لمسة خضراء جميلة.',
-      category: 'indoor' as const,
-      fullDescription: 'البوتس من النباتات المتسلقة الجميلة التي تتميز بأوراقها الخضراء اللامعة، وقدرتها على التكيف مع مختلف الظروف البيئية. يمكن زراعته في أواني معلقة أو تركه ليتسلق على دعامات. يعتبر من أكثر النباتات المنزلية شيوعاً لسهولة العناية به وجماله.',
-      careInstructions: 'يحتاج البوتس إلى ري معتدل، مع ترك التربة تجف قليلاً بين مرات الري. يفضل وضعه في مكان به إضاءة غير مباشرة، ويمكن أن ينمو أيضاً في الإضاءة الاصطناعية. تسميده مرة كل شهرين كافٍ للحفاظ على نموه بشكل جيد.',
-      images: [
-        'assets/img_18.png',
-        'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9'
-      ]
-    },
-    // More indoor plants
-    {
-      id: '4',
-      name: 'الكلافيا',
-      image: 'assets/img_19.png',
-      shortDescription: 'نبتة داخلية مزهرة بألوان برتقالية زاهية، تحب الضوء الساطع غير المباشر والرطوبة المعتدلة. مثالية للأماكن الهادئة داخل المنزل، وتُزهر في الربيع إذا اعتُني بها جيدًا.',
-      category: 'indoor' as const,
-      fullDescription: 'الكلافيا نبات داخلي مزهر يتميز بأزهاره البرتقالية أو الصفراء الزاهية التي تشبه المشاعل. تعتبر من النباتات التي تضفي لمسة من الألوان الدافئة على المنزل. تزهر عادة في فصل الربيع وأوائل الصيف.',
-      careInstructions: 'تحتاج الكلافيا إلى إضاءة ساطعة غير مباشرة، وتربة خفيفة جيدة التصريف. يجب ريها باعتدال، وتركها تجف بين الريات. تفضل الرطوبة المعتدلة، ولا تحب التيارات الهوائية الباردة.',
-      images: [
-        'assets/img_19.png',
-        'https://images.unsplash.com/photo-1518495973542-4542c06a5843'
-      ]
-    },
-    {
-      id: '5',
-      name: 'الشراع',
-      image: 'assets/img_20.png',
-      shortDescription: 'نبتة داخلية أنيقة بأزهار بيضاء، تنمو في الضوء غير المباشر وتحب الرطوبة المعتدلة. سهلة العناية، تنقي الهواء، لكنها سامة للحيوانات الأليفة.',
-      category: 'indoor',
-      fullDescription: 'الشراع أو زنبق السلام، نبات داخلي أنيق يتميز بأوراقه الخضراء اللامعة وأزهاره البيضاء الجميلة التي تشبه الأشرعة. يعتبر من النباتات التي تجلب الهدوء والسكينة للمكان، ويساعد في تنقية الهواء من بعض الملوثات.',
-      careInstructions: 'يحتاج الشراع إلى إضاءة متوسطة غير مباشرة، وتربة رطبة باستمرار مع تجنب تجمع الماء. يفضل البيئة الرطبة، لذا يمكن رش أوراقه بالماء من وقت لآخر. تجنب وضعه في أماكن باردة أو في تيارات هوائية مباشرة.',
-      images: [
-        'assets/img_20.png',
-        'https://images.unsplash.com/photo-1469474968028-56623f02e42e'
-      ]
-    },
-    {
-      id: '6',
-      name: 'وردة الكالا',
-      image: 'assets/img_21.png',
-      shortDescription: 'نبتة أنيقة تزهر في الربيع أو الصيف، قابلة للزراعة داخلًا أو خارجًا، تفضل الضوء الساطع غير المباشر وتربة جيدة التصريف. رمز للنقاء وتُستخدم كثيرًا في تنسيقات الزهور.' ,
-      category: 'indoor' as const ,
-      fullDescription: 'وردة الكالا، نبتة أنيقة تُزرع داخليًا أو خارجيًا، وتُعرف بأزهارها الجميلة التي ترمز للنقاء. تُستخدم كثيرًا في تنسيقات الزهور، خاصة في الأعراس والجنازات حسب اللون. تزهر عادة في الربيع أو بداية الصيف، ويمكن أن تعيش لسنوات وتتجدد سنويًا من الجذور إذا توفرت لها الظروف المناسبة.',
-      careInstructions: 'تحتاج الكالا إلى ضوء ساطع غير مباشر، ودرجة حرارة معتدلة بين 15–25 مئوية. يُفضل ريها مرة أو مرتين أسبوعيًا دون ترك التربة مبلولة جدًا، مع إزالة الأوراق الذابلة بانتظام. تحب التهوية الجيدة وتُزرع في إناء متوسط العمق (20–30 سم) أو في الحديقة مع ترك مسافة 30 سم بين كل نبتة. يُنصح باستخدام سماد سائل متوازن (10-10-10 NPK) كل أسبوعين خلال موسم النمو، وتقليل التسميد بعد الإزهار. يجب تجنب الرياح القوية والشمس المباشرة طوال اليوم. في حال ظهور مشاكل، يمكن استخدام مبيد فطري لعفن الجذور أو بقع الأوراق، ومبيد حشري خفيف عند ظهور الذبابة البيضاء أو المنّ.'
-    },
-    {
-      id: '7',
-      name: ' الغلونيميا',
-      image: 'assets/img_22.png',
-      shortDescription: 'نبتة داخلية تحب الإضاءة الهادئة. ري معتدل وتربة جيدة التصريف. لا تتحمل البرد أو التيارات الهوائية. تنظّف أوراقها بانتظام وتُسمد كل 4–6 أسابيع.' ,
-      category: 'indoor' as const,
-
-    },
-    {
-      id: '8',
-      name: 'الكروتون',
-      image: 'assets/img_23.png',
-      shortDescription: 'يعشق الإضاءة القوية غير المباشرة. ألوانه تصبح أجمل بالشمس. يحتاج ري منتظم ورطوبة جيدة. لا يحب التغيير المفاجئ في المكان أو البرودة.\n' +
-          '\n' ,
-      category: 'indoor' as const
-
-    },
-    {
-      id: '9',
-      name: 'الأريكا',
-      image: 'assets/img_24.png',
-      shortDescription: 'نخلة داخلية ناعمة، تحب الإضاءة الساطعة غير المباشرة. ري معتدل وتربة جيدة التصريف. لا تتحمل البرد. تُسمد شهريًا في الربيع والصيف.\n' +
-          '\n' ,
-      category: 'indoor' as const
-
-    },
-    {
-      id: '10',
-      name: 'المونستيرا',
-      image: 'assets/img_25.png',
-      shortDescription: 'نبتة استوائية كبيرة تحب الضوء غير المباشر والرطوبة العالية. ري معتدل وتربة جيدة التصريف. تنمو بسرعة وتحتاج دعم عمودي ومساحة واسعة.\n' +
-          '\n' ,
-      category: 'indoor' as const
-
-    },
-    {
-      id: '11',
-      name: 'الديفنباخيا',
-      image: 'assets/img_26.png',
-      shortDescription: 'نبتة داخلية محبة للرطوبة، ذات أوراق جذابة. تحتاج ضوء ساطع غير مباشر، وري معتدل. سامة إذا تم لمس عصارتها، فاحذري منها.\n' +
-          '\n' ,
-      category: 'indoor' as const
-
-    },
-    {
-      id: '12',
-      name: 'نبتة الشمعة (هويا)',
-      image: 'assets/img_27.png',
-      shortDescription: 'تحب الضوء الساطع غير المباشر والرطوبة المعتدلة. تُروى عند جفاف التربة من الأعلى، وتُزهر أكثر في ظروف دافئة. لا تحب النقل أو التقليم الزائد، ويمكن تعليقها أو دعمها كمتسلقة.\n' +
-          '\n' ,
-      category: 'indoor' as const
-
-    },
-    // Outdoor plants
-    {
-      id: '6',
-      name: 'نبتة العنب',
-      image: 'assets/img_16.png',
-      shortDescription: 'نبتة خارجية محبة للشمس، تحتاج دعم لتتسلق وتقليم لتحفيز الثمار. تُروى بانتظام وتُسمّد حسب الموسم. تُصاب أحيانًا بفطريات أو حشرات، لذا يُنصح بالرش الوقائي.',
-      category: 'outdoor',
-      fullDescription: 'نبات العنب من النباتات المتسلقة التي تنتج فاكهة لذيذة وصحية. يتميز بأوراقه الخضراء الكبيرة وثماره العنقودية. يمكن زراعته بغرض إنتاج الثمار أو لتغطية المعرشات والأسوار بمظهر جمالي. تختلف أصنافه بين العنب الأحمر والأبيض والأسود.',
-      careInstructions: 'يحتاج العنب إلى تربة عميقة جيدة التصريف وغنية بالمغذيات. يجب تعريضه لأشعة الشمس الكاملة، وريه بانتظام، خاصة في فترة نمو الثمار. التقليم المنتظم ضروري لتحفيز إنتاج الثمار وتشكيل النبات.',
-      images: [
-        'assets/img_16.png',
-        'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9'
-      ]
-    },
-    {
-      id: '5',
-      name: 'نبتة الفراولة',
-      image: 'assets/img_17.png',
-      shortDescription: 'نبات خارجي يحب الشمس وبيحتاج تربة جيدة التصريف. يُزرع في الأماكن المشمسة مع عناية بالتسميد والتقيلم. يُصاب ببعض الأمراض الفطرية والبكتيرية، ويحتاج لمكافحة دورية.',
-      category: 'outdoor',
-      fullDescription: 'الفراولة من النباتات المثمرة اللذيذة التي يمكن زراعتها بسهولة في الحديقة أو في أواني. تتميز بأزهارها البيضاء وثمارها الحمراء الجميلة. تعتبر من المحاصيل سريعة النمو نسبياً، ويمكن أن تبدأ في إنتاج الثمار خلال موسم واحد من الزراعة.',
-      careInstructions: 'تحتاج الفراولة إلى تربة غنية جيدة التصريف، وضوء شمس كامل أو جزئي. يجب ريها بانتظام مع الحرص على عدم تبليل الأوراق والثمار لتجنب الأمراض الفطرية. التسميد المنتظم خلال موسم النمو يعزز إنتاج الثمار.',
-      images: [
-        'assets/img_17.png',
-        'https://images.unsplash.com/photo-1469474968028-56623f02e42e'
-      ]
-    },
-
-    // Seeds
-    {
-      id: '6',
-      name: 'الحمص',
-      image: 'assets/img_29.png',
-      shortDescription: 'يُنقع قبل الزراعة لتسريع الإنبات، ويزرع في الخارج فقط تحت الشمس المباشرة. يفضل التربة جيدة التصريف، ولا يحتاج الكثير من التسميد النيتروجيني لأنه يثبّت النيتروجين بنفسه.',
-      category: 'seed',
-      fullDescription: 'الحمص من البقوليات المهمة والتي تعتبر مصدراً غذائياً غنياً بالبروتين. يتميز نبات الحمص بأوراقه الريشية وزهوره الصغيرة البيضاء أو الوردية، وقرونه المنتفخة التي تحتوي على البذور. يُزرع عادة في الربيع ويُحصد في أواخر الصيف.',
-      careInstructions: 'يحتاج الحمص إلى تربة خفيفة جيدة التصريف، وضوء شمس كامل. يجب نقع البذور قبل الزراعة لتسريع الإنبات. الري المعتدل كافٍ خاصة بعد الإنبات، حيث يعتبر الحمص من النباتات المقاومة نسبياً للجفاف.',
-      images: [
-        'assets/img_29.png',
-        'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07'
-      ]
-    },
-    {
-      id: '7',
-      name: 'القمح',
-      image: 'assets/img_30.png',
-      shortDescription: 'محصول شتوي يحتاج لمساحات واسعة وتربة خصبة. يفضل الزراعة في الخريف تحت أشعة الشمس، مع ري معتدل وتسميد متدرج حسب مراحل النمو.',
-      category: 'seed',
-      fullDescription: 'القمح من أهم المحاصيل الغذائية في العالم، وهو نبات عشبي حولي ينتمي إلى عائلة النجيليات. يتميز بسنابله الذهبية التي تحتوي على حبوب القمح. يُزرع عادة في الخريف ويُحصد في أواخر الربيع أو بداية الصيف، حسب المنطقة والصنف.',
-      careInstructions: 'يحتاج القمح إلى تربة خصبة وعميقة، وضوء شمس كامل. الري المنتظم مهم خاصة في مراحل النمو الأولى وفترة تكوين السنابل. التسميد المتوازن يساعد على زيادة المحصول وتحسين جودة الحبوب.',
-      images: [
-        'assets/img_30.png',
-        'https://images.unsplash.com/photo-1518495973542-4542c06a5843'
-      ]
-    },
-    {
-      id: '8',
-      name: 'العدس',
-      image: 'assets/img_28.png',
-      shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.',
-      category: 'seed',
-      fullDescription: 'العدس من البقوليات المهمة غذائياً والتي تحتوي على نسبة عالية من البروتين والألياف. يتميز نبات العدس بحجمه الصغير، وأوراقه المركبة، وزهوره الصغيرة البيضاء أو الزرقاء الفاتحة، وقرونه المسطحة التي تحتوي على بذور العدس. يُزرع عادة في الشتاء أو أوائل الربيع.',
-      careInstructions: 'يحتاج العدس إلى تربة متوسطة الخصوبة جيدة التصريف، وضوء شمس كامل. الري المعتدل كافٍ، حيث يعتبر العدس من النباتات المقاومة نسبياً للجفاف. لا يحتاج إلى تسميد نيتروجيني مكثف لأنه قادر على تثبيت النيتروجين من الهواء بمساعدة البكتيريا المتعايشة مع جذوره.',
-      images: [
-        'assets/img_28.png',
-        'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9'
-      ]
-    }
-  ];
-
   // Find the plant based on the ID parameter
-  const plant = allPlants.find(p => p.id === id);
+  const plant = plantsData.find(p => p.id === id);
 
   if (!plant) {
     return (
@@ -286,7 +86,7 @@ const PlantDetails = () => {
   };
 
   // Get related plants
-  const relatedPlants = allPlants
+  const relatedPlants = plantsData
     .filter(p => p.category === plant.category && p.id !== plant.id)
     .slice(0, 3);
 
@@ -314,10 +114,20 @@ const PlantDetails = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md">
                 {plant.name}
               </h1>
-              <div className="flex items-center mt-3">
-                <span className={`text-sm px-3 py-1 rounded-full shadow-md ${categoryClass[plant.category as keyof typeof categoryClass]}`}>
+              <div className="flex items-center mt-3 gap-3">
+                <Badge className={`shadow-md ${categoryClass[plant.category as keyof typeof categoryClass]}`}>
                   {categoryMap[plant.category as keyof typeof categoryMap]}
-                </span>
+                </Badge>
+                {plant.scientificName && (
+                  <Badge variant="outline" className="bg-white/90 text-gray-700">
+                    {plant.scientificName}
+                  </Badge>
+                )}
+                {plant.difficulty && (
+                  <Badge variant="outline" className="bg-white/90 text-gray-700">
+                    صعوبة: {plant.difficulty}
+                  </Badge>
+                )}
               </div>
             </div>
           </div>
@@ -327,9 +137,9 @@ const PlantDetails = () => {
       {/* Plant Content */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rtl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 rtl">
             {/* Main Image and Gallery */}
-            <div className="md:col-span-1">
+            <div className="lg:col-span-1">
               <div className="sticky top-8">
                 <Card className="overflow-hidden shadow-lg border-none mb-6">
                   <CardContent className="p-0">
@@ -337,104 +147,243 @@ const PlantDetails = () => {
                       <img 
                         src={activeImage || plant.image} 
                         alt={plant.name} 
-                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                        className="w-full h-80 object-cover hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                   </CardContent>
                 </Card>
                 
                 {/* Thumbnail Gallery */}
-                <div className="grid grid-cols-4 gap-2">
-                  {plant.images.map((img, index) => (
-                    <div 
-                      key={index} 
-                      className={`overflow-hidden rounded-md cursor-pointer border-2 transition-all ${
-                        activeImage === img ? 'border-rawaa-primary scale-105' : 'border-transparent'
-                      }`}
-                      onClick={() => setActiveImage(img)}
-                    >
-                      <img 
-                        src={img} 
-                        alt={`${plant.name} - ${index + 1}`} 
-                        className="w-full h-16 object-cover hover:opacity-90 transition-opacity"
-                      />
-                    </div>
-                  ))}
-                </div>
+                {plant.images && plant.images.length > 1 && (
+                  <div className="grid grid-cols-4 gap-2">
+                    {plant.images.map((img, index) => (
+                      <div 
+                        key={index} 
+                        className={`overflow-hidden rounded-md cursor-pointer border-2 transition-all ${
+                          activeImage === img ? 'border-rawaa-primary scale-105' : 'border-transparent'
+                        }`}
+                        onClick={() => setActiveImage(img)}
+                      >
+                        <img 
+                          src={img} 
+                          alt={`${plant.name} - ${index + 1}`} 
+                          className="w-full h-16 object-cover hover:opacity-90 transition-opacity"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
             
             {/* Plant Information */}
-            <div className="md:col-span-2">
-              <Card className="p-6 md:p-8 shadow-md border-none mb-8 bg-white">
-                <h2 className="text-3xl font-bold mb-6 text-rawaa-primary">معلومات عن {plant.name}</h2>
-                <p className="text-gray-700 leading-relaxed mb-8 text-lg">{plant.fullDescription}</p>
+            <div className="lg:col-span-2">
+              {/* Basic Info Card */}
+              <Card className="p-6 shadow-md border-none mb-6 bg-white">
+                <h2 className="text-3xl font-bold mb-4 text-rawaa-primary">معلومات عامة</h2>
+                <p className="text-gray-700 leading-relaxed mb-6 text-lg">{plant.fullDescription}</p>
                 
-                <div className="mb-8 bg-green-50 p-6 rounded-xl">
-                  <h3 className="text-2xl font-bold mb-4 flex items-center text-rawaa-primary">
-                    <Leaf className="h-6 w-6 ml-2 text-green-600" />
-                    تعليمات العناية
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed text-lg">{plant.careInstructions}</p>
+                {/* Quick Facts */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  {plant.origin && (
+                    <div className="flex items-center">
+                      <span className="font-semibold text-gray-800 ml-2">الموطن الأصلي:</span>
+                      <span className="text-gray-600">{plant.origin}</span>
+                    </div>
+                  )}
+                  {plant.matureSize && (
+                    <div className="flex items-center">
+                      <span className="font-semibold text-gray-800 ml-2">الحجم الناضج:</span>
+                      <span className="text-gray-600">{plant.matureSize}</span>
+                    </div>
+                  )}
+                  {plant.growthRate && (
+                    <div className="flex items-center">
+                      <span className="font-semibold text-gray-800 ml-2">معدل النمو:</span>
+                      <span className="text-gray-600">{plant.growthRate}</span>
+                    </div>
+                  )}
+                  {plant.toxicity && (
+                    <div className="flex items-center">
+                      <span className="font-semibold text-gray-800 ml-2">السمية:</span>
+                      <span className="text-gray-600">{plant.toxicity}</span>
+                    </div>
+                  )}
                 </div>
               </Card>
+
+              {/* Care Instructions Card */}
+              <Card className="p-6 shadow-md border-none mb-6 bg-white">
+                <h3 className="text-2xl font-bold mb-4 flex items-center text-rawaa-primary">
+                  <Leaf className="h-6 w-6 ml-2 text-green-600" />
+                  تعليمات العناية
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-6 text-lg">{plant.careInstructions}</p>
+                
+                {/* Care Details Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {plant.sunlight && (
+                    <div className="bg-yellow-50 p-4 rounded-lg">
+                      <div className="flex items-center mb-2">
+                        <Sun className="h-5 w-5 text-yellow-600 ml-2" />
+                        <span className="font-semibold text-gray-800">الإضاءة</span>
+                      </div>
+                      <span className="text-gray-600">{plant.sunlight}</span>
+                    </div>
+                  )}
+                  {plant.wateringFrequency && (
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <div className="flex items-center mb-2">
+                        <Droplets className="h-5 w-5 text-blue-600 ml-2" />
+                        <span className="font-semibold text-gray-800">الري</span>
+                      </div>
+                      <span className="text-gray-600">{plant.wateringFrequency}</span>
+                    </div>
+                  )}
+                  {plant.temperature && (
+                    <div className="bg-red-50 p-4 rounded-lg">
+                      <div className="flex items-center mb-2">
+                        <ThermometerSun className="h-5 w-5 text-red-600 ml-2" />
+                        <span className="font-semibold text-gray-800">درجة الحرارة</span>
+                      </div>
+                      <span className="text-gray-600">{plant.temperature}</span>
+                    </div>
+                  )}
+                  {plant.humidity && (
+                    <div className="bg-green-50 p-4 rounded-lg">
+                      <div className="flex items-center mb-2">
+                        <Clock className="h-5 w-5 text-green-600 ml-2" />
+                        <span className="font-semibold text-gray-800">الرطوبة</span>
+                      </div>
+                      <span className="text-gray-600">{plant.humidity}</span>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Soil and Fertilizing */}
+                {(plant.soilType || plant.fertilizing) && (
+                  <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {plant.soilType && (
+                      <div>
+                        <span className="font-semibold text-gray-800">نوع التربة:</span>
+                        <p className="text-gray-600 mt-1">{plant.soilType}</p>
+                      </div>
+                    )}
+                    {plant.fertilizing && (
+                      <div>
+                        <span className="font-semibold text-gray-800">التسميد:</span>
+                        <p className="text-gray-600 mt-1">{plant.fertilizing}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </Card>
+
+              {/* Benefits and Problems */}
+              {(plant.benefits || plant.commonProblems) && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  {plant.benefits && (
+                    <Card className="p-6 shadow-md border-none bg-white">
+                      <h3 className="text-xl font-bold mb-4 flex items-center text-green-600">
+                        <CheckCircle className="h-5 w-5 ml-2" />
+                        الفوائد
+                      </h3>
+                      <ul className="space-y-2">
+                        {plant.benefits.map((benefit, index) => (
+                          <li key={index} className="flex items-center text-gray-700">
+                            <div className="w-2 h-2 bg-green-500 rounded-full ml-2"></div>
+                            {benefit}
+                          </li>
+                        ))}
+                      </ul>
+                    </Card>
+                  )}
+                  
+                  {plant.commonProblems && (
+                    <Card className="p-6 shadow-md border-none bg-white">
+                      <h3 className="text-xl font-bold mb-4 flex items-center text-orange-600">
+                        <AlertTriangle className="h-5 w-5 ml-2" />
+                        المشاكل الشائعة
+                      </h3>
+                      <ul className="space-y-2">
+                        {plant.commonProblems.map((problem, index) => (
+                          <li key={index} className="flex items-center text-gray-700">
+                            <div className="w-2 h-2 bg-orange-500 rounded-full ml-2"></div>
+                            {problem}
+                          </li>
+                        ))}
+                      </ul>
+                    </Card>
+                  )}
+                </div>
+              )}
+
+              {/* Seasonal Care */}
+              {plant.seasonalCare && (
+                <Card className="p-6 shadow-md border-none bg-white">
+                  <h3 className="text-xl font-bold mb-4 text-rawaa-primary">العناية الموسمية</h3>
+                  <p className="text-gray-700 leading-relaxed">{plant.seasonalCare}</p>
+                </Card>
+              )}
             </div>
           </div>
         </div>
       </section>
 
       {/* Image Gallery Carousel */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4 rtl">
-          <h2 className="text-3xl font-bold mb-8 text-center text-rawaa-primary">معرض صور</h2>
-          <Carousel className="w-full max-w-4xl mx-auto">
-            <CarouselContent>
-              {plant.images.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card className="overflow-hidden border-none shadow-md">
-                      <CardContent className="p-0">
-                        <img 
-                          src={image} 
-                          alt={`${plant.name} - ${index + 1}`} 
-                          className="w-full h-56 object-cover hover:scale-105 transition-transform duration-300"
-                        />
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-2" />
-            <CarouselNext className="right-2" />
-          </Carousel>
-        </div>
-      </section>
+      {plant.images && plant.images.length > 1 && (
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4 rtl">
+            <h2 className="text-3xl font-bold mb-8 text-center text-rawaa-primary">معرض صور</h2>
+            <Carousel className="w-full max-w-4xl mx-auto">
+              <CarouselContent>
+                {plant.images.map((image, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="overflow-hidden border-none shadow-md">
+                        <CardContent className="p-0">
+                          <img 
+                            src={image} 
+                            alt={`${plant.name} - ${index + 1}`} 
+                            className="w-full h-56 object-cover hover:scale-105 transition-transform duration-300"
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
+          </div>
+        </section>
+      )}
       
       {/* Related Plants Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 rtl">
-          <h2 className="text-3xl font-bold mb-8 text-center text-rawaa-primary">نباتات ذات صلة</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {relatedPlants.map(relatedPlant => (
-              <PlantCard 
-                key={relatedPlant.id}
-                id={relatedPlant.id}
-                name={relatedPlant.name}
-                image={relatedPlant.image}
-                shortDescription={relatedPlant.shortDescription}
-                category={relatedPlant.category as 'indoor' | 'outdoor' | 'seed'}
-              />
-            ))}
+      {relatedPlants.length > 0 && (
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4 rtl">
+            <h2 className="text-3xl font-bold mb-8 text-center text-rawaa-primary">نباتات ذات صلة</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {relatedPlants.map(relatedPlant => (
+                <PlantCard 
+                  key={relatedPlant.id}
+                  id={relatedPlant.id}
+                  name={relatedPlant.name}
+                  image={relatedPlant.image}
+                  shortDescription={relatedPlant.shortDescription}
+                  category={relatedPlant.category as 'indoor' | 'outdoor' | 'seed'}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
       
       <Footer />
     </div>
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 export default PlantDetails;

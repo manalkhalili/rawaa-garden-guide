@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -7,34 +6,14 @@ import TeamMember from '../components/TeamMember';
 import Footer from '../components/Footer';
 import { Button } from '../components/ui/button';
 import {Flower, Sprout, Leaf, BookOpenText, Sparkles, Target} from 'lucide-react';
+import { plantsData } from '../data/plantsData';
 
 const Index = () => {
-  // Featured plants data
+  // Get featured plants (first 3 from each category)
   const featuredPlants = [
-    {
-      id: '1',
-      name: 'العدس',
-      image: 'assets/img_28.png',
-      shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.\n' +
-          '\n',
-      category: 'seed' as const
-    },
-    {
-      id: '2',
-      name: 'نبتة الفراولة',
-      image: 'assets/img_17.png',
-      shortDescription: 'نبات خارجي يحب الشمس وبيحتاج تربة جيدة التصريف. يُزرع في الأماكن المشمسة مع عناية بالتسميد والتقيلم. يُصاب ببعض الأمراض الفطرية والبكتيرية، ويحتاج لمكافحة دورية.\n' +
-          '\n',
-      category: 'outdoor' as const
-    },
-    {
-      id: '3',
-      name: 'وردة الكالا',
-      image: 'assets/img_21.png',
-      shortDescription: 'نبتة أنيقة تزهر في الربيع أو الصيف، قابلة للزراعة داخلًا أو خارجًا، تفضل الضوء الساطع غير المباشر وتربة جيدة التصريف. رمز للنقاء وتُستخدم كثيرًا في تنسيقات الزهور.' ,
-      category: 'indoor' as const
-
-    }
+    ...plantsData.filter(p => p.category === 'seed').slice(0, 1),
+    ...plantsData.filter(p => p.category === 'outdoor').slice(0, 1), 
+    ...plantsData.filter(p => p.category === 'indoor').slice(0, 1)
   ];
   
   // Team members data
@@ -74,6 +53,7 @@ const Index = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <Hero />
+        
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 rtl">
             {/* Title */}
@@ -150,8 +130,6 @@ const Index = () => {
           </div>
         </section>
 
-
-        {/* Plant Categories Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 rtl">
             <h2 className="section-title">أقسام النباتات</h2>
@@ -228,13 +206,12 @@ const Index = () => {
             
             <div className="text-center mt-10">
               <Button asChild className="bg-rawaa-primary hover:bg-rawaa-primary/90">
-                <a href="/indoor-plants">عرض المزيد من النباتات</a>
+                <a href="/all-plants">عرض المزيد من النباتات</a>
               </Button>
             </div>
           </div>
         </section>
         
-        {/* Team Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 rtl">
             <h2 className="section-title">فريق العمل</h2>
@@ -262,7 +239,6 @@ const Index = () => {
             </div>
           </div>
         </section>
-
 
         {/* Featured Product Section */}
         <section className="py-16 bg-white">
