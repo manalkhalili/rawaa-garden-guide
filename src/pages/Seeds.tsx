@@ -4,36 +4,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PlantCard from '../components/PlantCard';
 import { Sprout } from 'lucide-react';
+import { plantsData } from '../data/plantsData';
 
 const Seeds = () => {
-  // Seeds data
-  const seeds = [
-    {
-      id: '1',
-      name: 'الحمص',
-      image: 'assets/img_29.png',
-      shortDescription: 'يُنقع قبل الزراعة لتسريع الإنبات، ويزرع في الخارج فقط تحت الشمس المباشرة. يفضل التربة جيدة التصريف، ولا يحتاج الكثير من التسميد النيتروجيني لأنه يثبّت النيتروجين بنفسه.\n' +
-          '\n',
-      category: 'seed' as const
-    },
-    {
-      id: '2',
-      name: 'القمح',
-      image: 'assets/img_30.png',
-      shortDescription: 'محصول شتوي يحتاج لمساحات واسعة وتربة خصبة. يفضل الزراعة في الخريف تحت أشعة الشمس، مع ري معتدل وتسميد متدرج حسب مراحل النمو.\n' +
-          '\n',
-      category: 'seed' as const
-    },
-    {
-      id: '3',
-      name: 'العدس',
-      image: 'assets/img_28.png',
-      shortDescription: 'من البقوليات التي تنمو في الأجواء المعتدلة. يزرع بالخارج في تربة جيدة التصريف، ويحتاج ري منتظم دون إغراق. لا يحتاج لتقليم ويثبت النيتروجين طبيعيًا في التربة.\n' +
-          '\n',
-      category: 'seed' as const
-    },
-
-  ];
+  // Filter seeds from the data
+  const seeds = plantsData.filter(plant => plant.category === 'seed');
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -53,12 +28,12 @@ const Seeds = () => {
           </div>
         </section>
         
-        {/* Filter options (placeholder) */}
+        {/* Filter options */}
         <section className="bg-white py-4 border-b">
           <div className="container mx-auto px-4 rtl">
             <div className="flex flex-wrap items-center justify-between">
               <div className="mb-2 md:mb-0">
-                <span className="text-gray-600">6 أنواع من البذور</span>
+                <span className="text-gray-600">{seeds.length} أنواع من البذور</span>
               </div>
               <div className="flex items-center">
                 <span className="text-gray-600 ml-2">تصفية حسب:</span>

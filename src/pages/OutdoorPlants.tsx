@@ -4,28 +4,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PlantCard from '../components/PlantCard';
 import { Flower } from 'lucide-react';
+import { plantsData } from '../data/plantsData';
 
 const OutdoorPlants = () => {
-  // Outdoor plants data
-  const outdoorPlants = [
-    {
-      id: '1',
-      name: 'نبتة العنب',
-      image: 'assets/img_16.png',
-      shortDescription: 'نبتة خارجية محبة للشمس، تحتاج دعم لتتسلق وتقليم لتحفيز الثمار. تُروى بانتظام وتُسمّد حسب الموسم. تُصاب أحيانًا بفطريات أو حشرات، لذا يُنصح بالرش الوقائي.\n' +
-          '\n',
-      category: 'outdoor' as const
-    },
-    {
-      id: '2',
-      name: 'نبتة الفراولة',
-      image: 'assets/img_17.png',
-      shortDescription: 'نبات خارجي يحب الشمس وبيحتاج تربة جيدة التصريف. يُزرع في الأماكن المشمسة مع عناية بالتسميد والتقيلم. يُصاب ببعض الأمراض الفطرية والبكتيرية، ويحتاج لمكافحة دورية.\n' +
-          '\n',
-      category: 'outdoor' as const
-    },
-
-  ];
+  // Filter outdoor plants from the data
+  const outdoorPlants = plantsData.filter(plant => plant.category === 'outdoor');
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -45,12 +28,12 @@ const OutdoorPlants = () => {
           </div>
         </section>
         
-        {/* Filter options (placeholder) */}
+        {/* Filter options */}
         <section className="bg-white py-4 border-b">
           <div className="container mx-auto px-4 rtl">
             <div className="flex flex-wrap items-center justify-between">
               <div className="mb-2 md:mb-0">
-                <span className="text-gray-600">6 نباتات</span>
+                <span className="text-gray-600">{outdoorPlants.length} نباتات</span>
               </div>
               <div className="flex items-center">
                 <span className="text-gray-600 ml-2">تصفية حسب:</span>
