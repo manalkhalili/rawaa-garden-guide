@@ -37,8 +37,7 @@ export const plantsData: Plant[] = [
     careInstructions: 'يحتاج الورد الجوري إلى مكان مشمس يتلقى 6-8 ساعات من ضوء الشمس يومياً. يُفضل زراعته في تربة غنية جيدة التصريف مع pH بين 6.0-7.0. الري يجب أن يكون منتظماً ولكن معتدلاً، تجنب ري الأوراق لمنع الأمراض الفطرية. قم بالتقليم في أواخر الشتاء لإزالة الأغصان الميتة وتشجيع النمو الجديد. التسميد بسماد عضوي كل 3-4 أسابيع خلال موسم النمو.',
     images: [
       'assets/img_14.png',
-      'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-      'https://images.unsplash.com/photo-1518495973542-4542c06a5843'
+      'assets/img_31.png',
     ],
     scientificName: 'Rosa damascena',
     origin: 'بلاد الشام والأناضول',
@@ -66,8 +65,7 @@ export const plantsData: Plant[] = [
     careInstructions: 'يحتاج القرنفل إلى ضوء ساطع مع بعض الظل في فترة الظهيرة. يُفضل التربة جيدة التصريف مع pH قلوي قليلاً (7.0-8.5). الري معتدل مع تجنب تبليل الأوراق. يحتاج إلى هواء جيد التدوير لمنع الأمراض الفطرية. قم بإزالة الأزهار الذابلة لتشجيع الإزهار المستمر. التسميد بسماد متوازن كل أسبوعين.',
     images: [
       'assets/img_15.png',
-      'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e'
+      'assets/img_33.png',
     ],
     scientificName: 'Dianthus caryophyllus',
     origin: 'منطقة البحر الأبيض المتوسط',
@@ -95,8 +93,7 @@ export const plantsData: Plant[] = [
     careInstructions: 'البوتس نبات متسامح جداً، يمكنه النمو في الإضاءة المنخفضة إلى المتوسطة. تجنب أشعة الشمس المباشرة التي قد تحرق الأوراق. الري عندما تجف الطبقة العلوية من التربة (كل 1-2 أسبوع). يمكن إكثاره بسهولة عن طريق العقل في الماء. قم بتقليم الأطراف لتشجيع النمو الكثيف. يحب الرطوبة المعتدلة ويمكن رش أوراقه أحياناً.',
     images: [
       'assets/img_18.png',
-      'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9',
-      'https://images.unsplash.com/photo-1518495973542-4542c06a5843'
+      'assets/img_32.png',
     ],
     scientificName: 'Epipremnum aureum',
     origin: 'جزر سليمان',
@@ -124,8 +121,7 @@ export const plantsData: Plant[] = [
     careInstructions: 'تحتاج الكلافيا إلى ضوء ساطع غير مباشر، تجنب أشعة الشمس المباشرة. الري معتدل، اتركها تجف بين الريات. تحتاج لفترة راحة في الشتاء مع تقليل الري لتحفيز الإزهار. التربة جيدة التصريف مهمة لمنع عفن الجذور. تسميد شهري خلال موسم النمو. تفضل درجات حرارة معتدلة ولا تحب التغيرات المفاجئة.',
     images: [
       'assets/img_19.png',
-      'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e'
+      'assets/img_34.png',
     ],
     scientificName: 'Clivia miniata',
     origin: 'جنوب أفريقيا',
@@ -153,8 +149,7 @@ export const plantsData: Plant[] = [
     careInstructions: 'يحتاج الشراع إلى ضوء متوسط إلى منخفض، تجنب أشعة الشمس المباشرة. الري عندما تذبل الأوراق قليلاً أو تجف الطبقة العلوية من التربة. يحب الرطوبة العالية، يمكن رش الأوراق أو وضع صحن ماء بجانبه. التربة يجب أن تبقى رطبة وليست مبللة. تسميد شهري بسماد سائل مخفف. قم بإزالة الأزهار الذابلة والأوراق الصفراء.',
     images: [
       'assets/img_20.png',
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e',
-      'https://images.unsplash.com/photo-1518495973542-4542c06a5843'
+      'assets/img_35.png',
     ],
     scientificName: 'Spathiphyllum wallisii',
     origin: 'أمريكا الوسطى والجنوبية',
@@ -182,8 +177,7 @@ export const plantsData: Plant[] = [
     careInstructions: 'تحتاج الكالا إلى ضوء ساطع غير مباشر ودرجة حرارة معتدلة بين 15-25 مئوية. الري منتظم لكن تجنب تجمع الماء. تحتاج لفترة راحة بعد الإزهار حيث تقل المياه تدريجياً حتى تذبل الأوراق. يمكن حفظ الدرنات في مكان جاف وبارد خلال فترة السكون. التسميد كل أسبوعين خلال موسم النمو. تفضل التربة الغنية جيدة التصريف.',
     images: [
       'assets/img_21.png',
-      'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e'
+      'assets/img_36.png',
     ],
     scientificName: 'Zantedeschia aethiopica',
     origin: 'جنوب أفريقيا',
